@@ -9,6 +9,7 @@ Let's be honest, we all want to do great things. What is better than being part 
 - Profiles
 - Basic Search
 - Basic Matching
+- [Full Registry Fields Listing](https://drive.google.com/file/d/0B-fwmE4fYazKLUdmS1FvN1lJbUluUkp6ajBUWElVZGdSXzZR/view?usp=sharing)
 
 ### Preliminary Draft Requirements
 #### Overview
