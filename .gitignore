@@ -69,6 +69,12 @@ build-iPhoneSimulator/
 .idea/sqlDataSources.xml
 .idea/dynamic.xml
 .idea/uiDesigner.xml
+.idea/.generators
+.idea/.rakeTasks
+.idea/misc.xml
+.idea/modules.xml
+.idea/scimitar_oryx.iml
+.idea/*
 
 # Gradle:
 .idea/gradle.xml
