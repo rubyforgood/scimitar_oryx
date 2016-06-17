@@ -16,4 +16,10 @@ RSpec.describe Animal, type: :model do
     animal.facility = nil
     expect(animal).to_not be_valid
   end
+
+  it 'require a date of birth' do
+    animal.date_of_birth = nil
+    expect(animal).to_not be_valid
+  end
+
 end
