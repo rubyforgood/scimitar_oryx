@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :facilities_users
   has_many :facilities, through: :facilities_users
+
+  #site admin is boolean: current_user.site_admin?
+
+  
 end
