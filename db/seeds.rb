@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Species.create(name: 'Addax')
+Species.create(name: 'Addra (dama) Gazelle')
+Species.create(name: 'Nubian ibex')
+Species.create(name: 'Scimitar-horned Oryx')
+Species.create(name: 'Sable Antelope')
+Species.create(name: 'Tajik Markhor')
+Species.create(name: 'Transcaspian Urial')
