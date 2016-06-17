@@ -12,7 +12,7 @@ Let's be honest, we all want to do great things. What is better than being part 
 - Profiles
 - Basic Search
 - Basic Matching
-- [Full Registry Fields Listing](https://drive.google.com/file/d/0B-fwmE4fYazKLUdmS1FvN1lJbUluUkp6ajBUWElVZGdSXzZR/view?usp=sharing)
+- [Full Registry Fields Listing](https://drive.google.com/file/d/0B-fwmE4fYazKMy1heEtfUXN3TXZDTVBBclREVDhGV3k3QlE0/view?usp=sharing)
 
 ### Preliminary Draft Requirements
 #### Overview
