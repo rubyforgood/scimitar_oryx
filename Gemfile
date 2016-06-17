@@ -7,12 +7,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
-<<<<<<< HEAD
-=======
+
 
 gem 'bootstrap', '~> 4.0.0.alpha3'
->>>>>>> 61a695f70b6fbb5f56de71eb3a991ecaaedf3e07
-
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
