@@ -15,6 +15,7 @@ class AnimalsController < ApplicationController
   # GET /animals/new
   def new
     @animal = Animal.new(facility_id: params[:facility_id])
+    @animal.pictures.build
   end
 
   # GET /animals/1/edit
@@ -69,6 +70,6 @@ class AnimalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def animal_params
-      params.require(:animal).permit(:name, :species_id, :facility_id)
+      params.require(:animal).permit(:name, :species_id, :facility_id, pictures_attributes: [:name, :image])
     end
 end
