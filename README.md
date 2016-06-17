@@ -1,4 +1,7 @@
 # Save the Scimitar Oryx
+
+![scimitar oryx](http://images.fineartamerica.com/images-medium-large/scimitar-horned-oryx-ed-gleichman.jpg)
+
 \#oryxteam on [Slack](https://rubyforgood.slack.com/) (Request an invite [here](https://rubyforgood.herokuapp.com/))
 
 [Trello Board](https://trello.com/b/RZlFKHcl/save-the-scimitar-oryx)
