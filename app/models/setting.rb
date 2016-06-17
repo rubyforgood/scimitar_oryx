@@ -1,3 +1,5 @@
 class Setting < ActiveRecord::Base
-  acts_as_list
+  acts_as_list scope: [:type]
+  
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
 end
