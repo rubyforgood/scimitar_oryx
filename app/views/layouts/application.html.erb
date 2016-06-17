@@ -8,7 +8,42 @@
 </head>
 <body>
 
-<%= yield %>
+<div id="main-container" class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <img src="" alt="Source Population Alliance">
+    </div>
+    <div class="col-xs-6">
+
+      <ul class="nav nav-pills">
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li> -->
+        <% if current_user %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">username</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action 1</a>
+              <a class="dropdown-item" href="#">Action 2</a>
+              <a class="dropdown-item" href="#">Action 3</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Logout</a>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+
+      <%= yield %>
+    </div>
+  </div>
+</div>
+
 
 </body>
 </html>
