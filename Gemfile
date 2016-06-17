@@ -15,6 +15,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'dotenv'
+gem 'acts_as_list'
 
 group :development, :test do
   gem 'byebug'
