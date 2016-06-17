@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160617202239) do
+ActiveRecord::Schema.define(version: 20160617204224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20160617202239) do
     t.integer  "facility_type_id"
   end
 
+  add_index "facilities", ["facility_type_id"], name: "index_facilities_on_facility_type_id", using: :btree
 
   create_table "facilities_users", force: :cascade do |t|
     t.integer "facility_id"
@@ -55,8 +56,18 @@ ActiveRecord::Schema.define(version: 20160617202239) do
 
   add_index "facilities_users", ["facility_id"], name: "index_facilities_users_on_facility_id", using: :btree
   add_index "facilities_users", ["user_id"], name: "index_facilities_users_on_user_id", using: :btree
-  add_index "facilities", ["facility_type_id"], name: "index_facilities_on_facility_type_id", using: :btree
 
+  create_table "pictures", force: :cascade do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "animal_id"
+    t.integer  "facility_id"
+  end
+
+  add_index "pictures", ["animal_id"], name: "index_pictures_on_animal_id", using: :btree
+  add_index "pictures", ["facility_id"], name: "index_pictures_on_facility_id", using: :btree
 
   create_table "settings", force: :cascade do |t|
     t.string   "name"
@@ -85,4 +96,6 @@ ActiveRecord::Schema.define(version: 20160617202239) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "pictures", "animals"
+  add_foreign_key "pictures", "facilities"
 end

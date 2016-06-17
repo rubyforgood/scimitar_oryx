@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @animal.name %></h1>
 <h1><%= @animal.facility.name %></h1>
-<img  src="http://lorempixel.com/400/400/">
+<h2><%= @animal.name %></h2>
 <h3>Date of Birth: <%= @animal.date_of_birth %></h3>
 <h3>Studbook: <%= @animal.studbook %></h3>
 <h3>Sire: <%= @animal.sire %></h3>
@@ -11,6 +10,11 @@
 <h3>Comments: <%= @animal.comments %></h3>
 <h3>Searchable: <%= @animal.searchable %></h3>
 
-
 <%= link_to 'Edit', edit_animal_path(@animal) %> |
 <%= link_to 'Back', animals_path %>
+<br/>
+
+<% @animal.pictures.each do |p| %>
+  <%= image_tag p.image.url(:large) %>
+  <br/>
+<% end %>
