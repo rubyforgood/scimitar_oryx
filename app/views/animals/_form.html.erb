@@ -3,5 +3,6 @@
 
   <%= f.input :name %>
   <%= f.input :species_id, collection: Species.all %>
+  <%= f.input :facility_id, collection: Facility.all %>
   <%= f.button :submit %>
 <% end %>
