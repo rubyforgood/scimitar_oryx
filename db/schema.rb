@@ -11,27 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160617173841) do
+ActiveRecord::Schema.define(version: 20160617202239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "animals", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "species_id"
     t.integer  "facility_id"
+    t.date     "date_of_birth"
+    t.string   "studbook"
+    t.string   "sire"
+    t.string   "dam"
+    t.string   "tag"
+    t.text     "comments"
+    t.boolean  "searchable"
+    t.integer  "sex_id"
+    t.integer  "rearing_id"
+    t.integer  "reproductive_status_id"
   end
 
   add_index "animals", ["facility_id"], name: "index_animals_on_facility_id", using: :btree
+  add_index "animals", ["rearing_id"], name: "index_animals_on_rearing_id", using: :btree
+  add_index "animals", ["reproductive_status_id"], name: "index_animals_on_reproductive_status_id", using: :btree
+  add_index "animals", ["sex_id"], name: "index_animals_on_sex_id", using: :btree
   add_index "animals", ["species_id"], name: "index_animals_on_species_id", using: :btree
 
   create_table "facilities", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "facility_type_id"
   end
+
+  add_index "facilities", ["facility_type_id"], name: "index_facilities_on_facility_type_id", using: :btree
 
   create_table "settings", force: :cascade do |t|
     t.string   "name"
