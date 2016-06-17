@@ -14,9 +14,6 @@
 /test/version_tmp/
 /tmp/
 
-# Used by dotenv library to load environment variables.
-# .env
-
 ## Specific to RubyMotion:
 .dat*
 .repl_history
@@ -126,8 +123,9 @@ pickle-email-*.html
 config/initializers/secret_token.rb
 
 # dotenv
-# TODO Comment out this rule if environment variables can be committed
-.env
+.env.development
+.env.local
+
 
 ## Environment normalization:
 /.bundle
