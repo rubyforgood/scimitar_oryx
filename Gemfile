@@ -22,6 +22,7 @@ gem 'simple_form'
 
 group :development, :test do
   gem 'byebug'
+  gem 'dotenv-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
 end
