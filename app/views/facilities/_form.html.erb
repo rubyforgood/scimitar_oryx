@@ -2,8 +2,11 @@
   <%= f.error_notification %>
 
   <%= f.input :name %>
-  <%= f.label :image %>
-  <%= f.file_field :image %>
+  <%= f.simple_fields_for :pictures do |p| %>
+    <%= p.label :image %>
+    <%= p.file_field :image %>
+  <% end %>
+
   <br/>
 
   <%= f.button :submit %>

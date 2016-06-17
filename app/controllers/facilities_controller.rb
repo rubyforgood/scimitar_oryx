@@ -27,6 +27,8 @@ class FacilitiesController < ApplicationController
   def create
     @facility = Facility.new(facility_params)
 
+    puts facility_params.inspect
+
     respond_to do |format|
       if @facility.save
         format.html { redirect_to @facility, notice: 'Facility was successfully created.' }

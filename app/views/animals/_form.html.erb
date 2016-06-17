@@ -4,8 +4,11 @@
   <%= f.input :name %>
   <%= f.input :species_id, collection: Species.all %>
   <%= f.input :facility_id, collection: Facility.all %>
-  <%= f.label :image %>
-  <%= f.file_field :image %>
+  <%= f.simple_fields_for :pictures do |p| %>
+    <%= p.label :image %>
+    <%= p.file_field :image %>
+  <% end %>
+
   <br/>
 
   <%= f.button :submit %>
