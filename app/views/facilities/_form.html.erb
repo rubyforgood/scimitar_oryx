@@ -1,6 +1,10 @@
-<%= simple_form_for(@facility) do |f| %>
+<%= simple_form_for(@facility, multipart: true) do |f| %>
   <%= f.error_notification %>
 
   <%= f.input :name %>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <br/>
+
   <%= f.button :submit %>
 <% end %>
