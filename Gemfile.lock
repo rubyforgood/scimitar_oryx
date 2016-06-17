@@ -37,9 +37,17 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+<<<<<<< HEAD
     bcrypt (3.1.11)
+=======
+    autoprefixer-rails (6.3.6.2)
+      execjs
+>>>>>>> 61a695f70b6fbb5f56de71eb3a991ecaaedf3e07
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap (4.0.0.alpha3)
+      autoprefixer-rails (>= 6.0.3)
+      sass (>= 3.4.19)
     builder (3.2.2)
     byebug (9.0.5)
     coffee-rails (4.1.1)
@@ -175,6 +183,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap (~> 4.0.0.alpha3)
   byebug
   coffee-rails (~> 4.1.0)
   devise
