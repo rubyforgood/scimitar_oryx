@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20160617153942) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "species_id", null: false
+    t.integer  "species_id"
   end
 
   add_index "animals", ["species_id"], name: "index_animals_on_species_id", using: :btree
