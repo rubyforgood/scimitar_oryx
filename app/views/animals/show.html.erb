@@ -2,7 +2,7 @@
 
 <h1><%= @animal.name %></h1>
 <h1><%= @animal.facility.name %></h1>
-<img  src="http://lorempixel.com/400/400/">
+<%= image_tag @animal.image.url(:large) %>
 
 <%= link_to 'Edit', edit_animal_path(@animal) %> |
 <%= link_to 'Back', animals_path %>
