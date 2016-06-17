@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'dotenv'
 gem 'acts_as_list'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug'
