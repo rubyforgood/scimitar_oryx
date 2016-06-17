@@ -7,3 +7,9 @@
 
 <%= link_to 'Edit', edit_facility_path(@facility) %> |
 <%= link_to 'Back', facilities_path %>
+
+<h2>Animals</h2>
+<%= link_to 'Add Animal', new_animal_path(facility_id: @facility.id) %>
+<%= render @facility.animals %>
+
+
