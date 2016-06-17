@@ -1,21 +1,7 @@
-<%= form_for(@animal) do |f| %>
-  <% if @animal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@animal.errors.count, "error") %> prohibited this animal from being saved:</h2>
+<%= simple_form_for(@animal) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% @animal.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.input :name %>
+  <%= f.input :species_id, collection: Species.all %>
+  <%= f.button :submit %>
 <% end %>

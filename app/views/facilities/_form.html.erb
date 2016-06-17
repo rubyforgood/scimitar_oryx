@@ -1,21 +1,6 @@
-<%= form_for(@facility) do |f| %>
-  <% if @facility.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@facility.errors.count, "error") %> prohibited this facility from being saved:</h2>
+<%= simple_form_for(@facility) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% @facility.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.input :name %>
+  <%= f.button :submit %>
 <% end %>
