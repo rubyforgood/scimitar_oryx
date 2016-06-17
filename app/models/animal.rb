@@ -7,4 +7,6 @@ class Animal < ActiveRecord::Base
   validates :name, presence: true
   validates :facility_id, presence: true
   validates :species_id, presence: true
+
+  accepts_nested_attributes_for :pictures, :reject_if => lambda { |t| t['trip_image'].nil? }
 end
