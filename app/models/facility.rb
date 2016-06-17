@@ -3,5 +3,5 @@ class Facility < ActiveRecord::Base
   belongs_to :facility_type
 
   validates :name, presence: true
-  validates :facility_id, presence: true
+  validates :facility_type_id, presence: true
 end

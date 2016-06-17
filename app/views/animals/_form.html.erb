@@ -4,5 +4,13 @@
   <%= f.input :name %>
   <%= f.input :species_id, collection: Species.all %>
   <%= f.input :facility_id, collection: Facility.all %>
+  <%= f.input :date_of_birth %>
+  <%= f.input :studbook, label: 'Studbook Number' %>
+  <%= f.input :sire, label: 'Sire' %>
+  <%= f.input :dam, label: 'Dam' %>
+  <%= f.input :tag %>
+  <%= f.input :searchable %>
+  <%= f.input :comments %>
+
   <%= f.button :submit %>
 <% end %>
