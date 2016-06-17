@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160617173841) do
+ActiveRecord::Schema.define(version: 20160617181613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 20160617173841) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pictures", force: :cascade do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "animal_id"
+    t.integer  "facility_id"
+  end
+
+  add_index "pictures", ["animal_id"], name: "index_pictures_on_animal_id", using: :btree
+  add_index "pictures", ["facility_id"], name: "index_pictures_on_facility_id", using: :btree
+
   create_table "settings", force: :cascade do |t|
     t.string   "name"
     t.string   "type"
@@ -40,6 +52,8 @@ ActiveRecord::Schema.define(version: 20160617173841) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "settings", ["type"], name: "index_settings_on_type", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -57,4 +71,6 @@ ActiveRecord::Schema.define(version: 20160617173841) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "pictures", "animals"
+  add_foreign_key "pictures", "facilities"
 end
