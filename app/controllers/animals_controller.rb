@@ -1,5 +1,6 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
+  before_action :set_facility, except: [:search]
   before_action :authenticate_user!, except: [:show]
 
   # GET /animals
@@ -35,7 +36,7 @@ class AnimalsController < ApplicationController
 
     respond_to do |format|
       if @animal.save
-        format.html { redirect_to @animal, notice: 'Animal was successfully created.' }
+        format.html { redirect_to facility_animal_path(@facility, @animal) , notice: 'Animal was successfully created.' }
         format.json { render :show, status: :created, location: @animal }
       else
         format.html { render :new }
@@ -49,7 +50,7 @@ class AnimalsController < ApplicationController
   def update
     respond_to do |format|
       if @animal.update(animal_params)
-        format.html { redirect_to @animal, notice: 'Animal was successfully updated.' }
+        format.html { redirect_to facility_animal_path(@facility, @animal), notice: 'Animal was successfully updated.' }
         format.json { render :show, status: :ok, location: @animal }
       else
         format.html { render :edit }
@@ -63,7 +64,7 @@ class AnimalsController < ApplicationController
   def destroy
     @animal.destroy
     respond_to do |format|
-      format.html { redirect_to animals_url, notice: 'Animal was successfully destroyed.' }
+      format.html { redirect_to facility_animals_path @facility, notice: 'Animal was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -72,6 +73,10 @@ class AnimalsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_animal
       @animal = Animal.find(params[:id])
+    end
+
+    def set_facility
+      @facility = Facility.find(params[:facility_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
