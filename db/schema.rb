@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20160618143600) do
 
   create_table "animals", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",                                                         null: false
-    t.datetime "updated_at",                                                         null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "species_id"
     t.integer  "facility_id"
     t.date     "date_of_birth"
@@ -44,9 +44,15 @@ ActiveRecord::Schema.define(version: 20160618143600) do
 
   create_table "facilities", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.integer  "facility_type_id"
+    t.boolean  "spa"
+    t.float    "acreage"
+    t.float    "endangered_acreage"
+    t.boolean  "temperture_controled"
+    t.boolean  "water_features"
+    t.boolean  "supplemental_feed"
   end
 
   add_index "facilities", ["facility_type_id"], name: "index_facilities_on_facility_type_id", using: :btree
