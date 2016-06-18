@@ -18,6 +18,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'paperclip'
+gem 'pry'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'dotenv'
 gem 'acts_as_list'
@@ -26,11 +27,12 @@ gem 'simple_form'
 group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
+  gem 'pry-remote'
+  gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'quiet_assets'
-  gem 'pry'
 end
 
 group :development do
