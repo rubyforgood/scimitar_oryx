@@ -90,7 +90,8 @@ class AnimalsController < ApplicationController
         :sex_id,
         :rearing_id,
         :reproductive_status_id,
-        pictures_attributes: [:name, :image]
+        pictures_attributes: [:name, :image],
+        interests: []
         )
     end
 end

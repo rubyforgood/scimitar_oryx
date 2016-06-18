@@ -10,6 +10,9 @@
     <%= p.file_field :image %>
   <% end %>
 
+
+  <%= f.input :interests, as: :check_boxes, collection: Facility::VALID_INTERESTS.to_a.map(&:reverse) %>
+
   <%= f.input :facility_expertise_id, collection: FacilityExpertise.all %>
   <%= f.input :spa %>
   <%= f.input :acreage %>

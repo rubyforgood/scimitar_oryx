@@ -28,7 +28,7 @@ class Facility < ActiveRecord::Base
     'house_new_species'               => 'Interested in housing new species'
   }.freeze
 
-  before_save { |facility| facility.interests = facility.interests.uniq.select{ |e| VALID_INTERESTS.keys.include?(e) } }
+  before_save { |facility| facility.interests = facility.interests.uniq.select{ |e| VALID_INTERESTS.keys.include?(e) }  }
 
   VALID_INTERESTS.keys.each do |interest|
     define_method("interest_to_#{interest}?"){ interests.include?(interest) }

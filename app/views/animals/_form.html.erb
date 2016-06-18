@@ -7,6 +7,9 @@
   <%= f.input :rearing_id, collection: Rearing.all %>
   <%= f.input :reproductive_status_id, collection: ReproductiveStatus.all %>
   <%= f.input :date_of_birth %>
+
+  <%= f.input :interests, as: :check_boxes, collection: Animal::VALID_INTERESTS %>
+
   <%= f.input :studbook, label: 'Studbook Number' %>
   <%= f.input :transponder, label: 'Transponder Number' %>
   <%= f.input :sire, label: 'Sire' %>
