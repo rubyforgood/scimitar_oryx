@@ -17,3 +17,5 @@ Species.create(name: 'Transcaspian Urial')
 FacilityType.create(name: 'Institution')
 FacilityType.create(name: 'Ranch')
 FacilityType.create(name: 'Individual')
+
+Facility.create(name: 'Example Ranch', facility_type_id: 2)
