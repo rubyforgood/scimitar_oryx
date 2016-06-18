@@ -6,32 +6,32 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Species.create(name: 'Addax')
-Species.create(name: 'Addra (dama) Gazelle')
-Species.create(name: 'Nubian ibex')
-Species.create(name: 'Scimitar-horned Oryx')
-Species.create(name: 'Sable Antelope')
-Species.create(name: 'Tajik Markhor')
-Species.create(name: 'Transcaspian Urial')
+Species.where(name: 'Addax').first_or_create
+Species.where(name: 'Addra (dama) Gazelle').first_or_create
+Species.where(name: 'Nubian ibex').first_or_create
+Species.where(name: 'Scimitar-horned Oryx').first_or_create
+Species.where(name: 'Sable Antelope').first_or_create
+Species.where(name: 'Tajik Markhor').first_or_create
+Species.where(name: 'Transcaspian Urial').first_or_create
 
-Sex.create(name: 'Male')
-Sex.create(name: 'Female')
-Sex.create(name: 'Unknown')
+Sex.where(name: 'Male').first_or_create
+Sex.where(name: 'Female').first_or_create
+Sex.where(name: 'Unknown').first_or_create
 
-Rearing.create(name: 'Parent reared')
-Rearing.create(name: 'Hand reared')
+Rearing.where(name: 'Parent reared').first_or_create
+Rearing.where(name: 'Hand reared').first_or_create
 
-ReproductiveStatus.create(name: 'Unproven')
-ReproductiveStatus.create(name: 'Proven')
-ReproductiveStatus.create(name: 'Post-reproductive')
+ReproductiveStatus.where(name: 'Unproven').first_or_create
+ReproductiveStatus.where(name: 'Proven').first_or_create
+ReproductiveStatus.where(name: 'Post-reproductive').first_or_create
 
-FacilityType.create(name: 'Institution')
-FacilityType.create(name: 'Ranch')
-FacilityType.create(name: 'Individual')
+FacilityType.where(name: 'Institution').first_or_create
+FacilityType.where(name: 'Ranch').first_or_create
+FacilityType.where(name: 'Individual').first_or_create
 
-FacilityExpertise.create(name: 'Convervation breeding')
-FacilityExpertise.create(name: 'Reproductive Science')
-FacilityExpertise.create(name: 'Biobanking')
-FacilityExpertise.create(name: 'Natural Resource Management')
+FacilityExpertise.where(name: 'Convervation breeding').first_or_create
+FacilityExpertise.where(name: 'Reproductive Science').first_or_create
+FacilityExpertise.where(name: 'Biobanking').first_or_create
+FacilityExpertise.where(name: 'Natural Resource Management').first_or_create
 
-Facility.create(name: 'Example Ranch', facility_type_id: 2)
+Facility.where(name: 'Example Ranch', facility_type_id: 2).first_or_create

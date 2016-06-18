@@ -10,7 +10,7 @@
 </div>
 <div class="row">
   <div class="col-md-8">
-    <%= image_tag @animal.pictures.first.image.url(:portfolio_large), class: "img-responsive" %>
+    <%= image_tag @animal.pictures.first.image.url(:portfolio_large), class: "img-responsive" if @animal.pictures.first.present? %>
   </div>
   <div class="col-md-4">
     <h3>Description</h3>
