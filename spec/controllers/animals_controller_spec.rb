@@ -20,9 +20,13 @@ require 'rails_helper'
 
 RSpec.describe AnimalsController, type: :controller do
 
+  before :each do
+    login_with nil
+  end
+
   let(:valid_animal) { build :sample_animal }
 
-  let(:invalid_animal) { build :animal, species_id: ''  }
+  let(:invalid_animal) { build :sample_animal, name: nil  }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
