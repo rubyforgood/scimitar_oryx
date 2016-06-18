@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618142311) do
+ActiveRecord::Schema.define(version: 20160618143600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "animals", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                                                         null: false
+    t.datetime "updated_at",                                                         null: false
     t.integer  "species_id"
     t.integer  "facility_id"
     t.date     "date_of_birth"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160618142311) do
     t.integer  "rearing_id"
     t.integer  "reproductive_status_id"
     t.string   "transponder"
+    t.text     "interests",              default: ["keep", "sell", "trade", "loan"],              array: true
   end
 
   add_index "animals", ["facility_id"], name: "index_animals_on_facility_id", using: :btree
@@ -77,6 +78,8 @@ ActiveRecord::Schema.define(version: 20160618142311) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "settings", ["type"], name: "index_settings_on_type", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
