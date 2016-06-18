@@ -24,6 +24,8 @@ gem 'simple_form'
 gem 'aws-sdk'
 gem 'geocoder'
 
+gem 'rails_12factor', group: :production
+
 group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
