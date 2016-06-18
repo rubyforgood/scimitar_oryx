@@ -5,7 +5,7 @@ class Picture < ActiveRecord::Base
   # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :image, styles: {
     thumb: '100x100>',
-    square: '200x200#',
+    square: '200x200>',
     medium: '300x300>',
     large:   '400x400>',
     portfolio_small: '500x300>',
