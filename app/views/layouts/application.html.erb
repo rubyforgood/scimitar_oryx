@@ -8,13 +8,19 @@
   <%= csrf_meta_tags %>
   <script type="text/javascript" src="//www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript" src="//www.google.com/jsapi"></script>
-
 </head>
 <body data-no-turbolink="true">
-<div id="main-container" class="container">
-  <div class="header clearfix" style="padding-top:10px;padding-bottom:10px;">
-    <nav >
-      <ul class="nav nav-pills pull-right">
+<nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed navbar-default  text-success" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        Menu
+      </button>
+      <a href="<%= root_path %>" style="float:left;padding-left:15px;padding-right:15px;"><%= image_tag 'spa_logo_horizontal_pms_small.jpg', alt: "Source Population Alliance" %></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
         <li class="nav-item">
           <%= link_to 'Facilities', facilities_path, class: 'nav-link' %>
         </li>
@@ -31,10 +37,7 @@
           </li>
         <% end %>
       </ul>
-    </nav>
-    <div class="pull-right"><%= render 'search/form' %></div>
-    <div class="pull-left" style="padding-right: 10px;">
-      <a href="<%= root_path %>"><%= image_tag 'spa_logo_horizontal_pms_small.jpg', alt: "Source Population Alliance" %></a>
+      <%= render 'search/form' %>
     </div>
 
     
@@ -52,9 +55,12 @@
         <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span></strong> <%= notice %> <%= alert %>
       </div>
     <% end %>
-
-    <%= yield %>
   </div>
+</nav>
+
+
+<div id="main-container" class="container" style="padding:10px;">
+  <%= yield %>
 </div>
 
 
