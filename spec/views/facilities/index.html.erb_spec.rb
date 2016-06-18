@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "facilities/index", type: :view do
 
+  before :each do
+    login
+  end
+
   it "renders a list of facilities" do
     facility = create(:sample_facility, :name => "john")
 
@@ -9,8 +13,8 @@ RSpec.describe "facilities/index", type: :view do
     # view of facilities requires one to be authenticated. - jeremy
 
     assign :facilities, [ facility ]
-    assign :current_user,
-      create(:user, :facility_ids => [ facility.id ])
+    #assign :current_user,
+      #create(:user, :facility_ids => [ facility.id ])
 
     render
     assert_select "tr>td", :text => "john".to_s, :count => 1
