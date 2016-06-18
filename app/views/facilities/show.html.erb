@@ -5,7 +5,9 @@
   <%= @facility.name %>
 </p>
 
-<%= image_tag @facility.pictures.first.image.url(:large) %>
+<% if @facility.pictures.any? %>
+  <%= image_tag @facility.pictures.first.image.url(:large) %>
+<% end %>
 
 <%= link_to 'Edit', edit_facility_path(@facility) %> |
 <%= link_to 'Back', facilities_path %>
