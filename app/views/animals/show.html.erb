@@ -31,10 +31,10 @@
     </p>
     <h3>Actions</h3>
     <p>
-      <% if current_user.site_admin? || FacilityUser.find_by(user_id: current_user.id).facility_id === @animal.facility_id%>
-        <%= link_to 'Edit', edit_animal_path(@animal) %> |
+      <% if current_user.site_admin? %>
+        <%= link_to 'Edit', edit_facility_animal_path(@facility, @animal) %> |
       <% end %>
-      <%= link_to 'Back', animals_path %>
+      <%= link_to 'Back', facility_animals_path(@facility) %>
     </p>
   </div>
 </div>

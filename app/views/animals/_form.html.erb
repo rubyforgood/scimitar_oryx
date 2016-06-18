@@ -1,9 +1,8 @@
-<%= simple_form_for(@animal, multipart: true) do |f| %>
+<%= simple_form_for([@facility, @animal], multipart: true) do |f| %>
   <%= f.error_notification %>
 
   <%= f.input :name %>
   <%= f.input :species_id, collection: Species.all %>
-  <%= f.input :facility_id, collection: Facility.all %>
   <%= f.input :sex_id, collection: Sex.all %>
   <%= f.input :rearing_id, collection: Rearing.all %>
   <%= f.input :reproductive_status_id, collection: ReproductiveStatus.all %>

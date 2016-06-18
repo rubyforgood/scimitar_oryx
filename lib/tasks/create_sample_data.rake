@@ -5,7 +5,9 @@ namespace :create_sample_data do
   end
   task :sample_facilities,[:facilityNum] => :environment do |t,args|
     #require File.expand_path("spec/factories/facility_factory.rb")
-    FactoryGirl.create_list( :sample_facility,args[:facilityNum].to_i)
+    args[:facilityNum].to_i.times do
+      FactoryGirl.new(:sample_facility).save(validate: false)
+    end
   end
 
 end

@@ -6,7 +6,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="//www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="//www.google.com/jsapi"></script>
 
 </head>
 <body>
@@ -19,11 +20,8 @@
       <a href="<%= root_path %>"><%= image_tag 'spa_logo_horizontal_pms.jpg', alt: "Source Population Alliance", class: 'main-logo' %></a>
     </div>
     <div class="col-xs-8">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to 'Animals', animals_path, class: 'nav-link' %>
-        </li>
-        <li>
+      <ul class="nav nav-pills pull-bottom-right">
+        <li class="nav-item">
           <%= link_to 'Facilities', facilities_path, class: 'nav-link' %>
         </li>
         <% if user_signed_in? %>
@@ -41,12 +39,7 @@
       </ul>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-xs-12">
-      <%= yield %>
-    </div>
-  </div>
+  <%= yield %>
 </div>
 
 

@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(version: 20160618192714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "cube"
+  enable_extension "earthdistance"
 
   create_table "animals", force: :cascade do |t|
     t.string   "name"
@@ -90,8 +92,6 @@ ActiveRecord::Schema.define(version: 20160618192714) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "settings", ["type"], name: "index_settings_on_type", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
