@@ -22,6 +22,7 @@ class AnimalsController < ApplicationController
 
   # GET /animals/1/edit
   def edit
+    @animal.pictures.build
   end
 
   # POST /animals
