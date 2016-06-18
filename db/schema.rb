@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20160618152843) do
     t.boolean  "temperture_controled"
     t.boolean  "water_features"
     t.boolean  "supplemental_feed"
-    t.integer  "facility_expertise_id"
     t.text     "interests",             default: ["grow_herd_size"],              array: true
+    t.integer  "facility_expertise_id"
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 20160618152843) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "settings", ["type"], name: "index_settings_on_type", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
