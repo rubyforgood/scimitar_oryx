@@ -13,6 +13,13 @@ class Facility < ActiveRecord::Base
 
   accepts_nested_attributes_for :pictures
 
+  geocoded_by :address
+  after_validation :geocode
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode
+
+  after_validation :geocode, if: ->(facility){ facility.address.present? && facility.address_changed? }
+
   VALID_INTERESTS = {
     'grow_herd_size'                  => 'Breed to grow herd size',
     'maintain_herd_size'              => 'Breed to maintain herd size',

@@ -1,9 +1,11 @@
-<div class="Animal" style="float:left; padding: 5px;">
-  <h3> <%= link_to animal.name, animal_path(animal) %> </h3>
-  <h4> <%= animal.species.name %> </h4>
+<div class="animal col-md-4">
   <%= link_to animal_path(animal) do %>
-  <%= image_tag animal.pictures.first.image.url(:large) if animal.pictures.first %>
+    <% if animal.pictures.first.present? %>
+      <%= image_tag animal.pictures.first.image.url(:large), class: "img-responsive" %>
+    <% end %>
   <% end %>
+  <h3><%= link_to animal.name, animal_path(animal) %></h3>
+  <p><%= animal.species.name %></p>
   <p>Studbook <%= animal.studbook %></p>
   <p>Tag <%= animal.tag %></p>
   <p>Facility <%= animal.facility.name %></p>
