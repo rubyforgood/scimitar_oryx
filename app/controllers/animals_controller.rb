@@ -6,12 +6,7 @@ class AnimalsController < ApplicationController
   # GET /animals
   # GET /animals.json
   def index
-    @animals = Animal.all
-  end
-
-  def search
-    @animals = Animal.search(params[:q])
-    render :index
+    @animals = @facility.animals.all
   end
 
   # GET /animals/1
@@ -21,7 +16,7 @@ class AnimalsController < ApplicationController
 
   # GET /animals/new
   def new
-    @animal = Animal.new(facility_id: params[:facility_id])
+    @animal = @facility.animals.new(facility_id: params[:facility_id])
     @animal.pictures.build
   end
 
@@ -32,7 +27,7 @@ class AnimalsController < ApplicationController
   # POST /animals
   # POST /animals.json
   def create
-    @animal = Animal.new(animal_params)
+    @animal = @facility.animals.new(animal_params)
 
     respond_to do |format|
       if @animal.save
@@ -86,6 +81,7 @@ class AnimalsController < ApplicationController
         :facility_id,
         :date_of_birth,
         :studbook,
+        :transponder,
         :sire,
         :dam,
         :tag,

@@ -7,7 +7,7 @@
 
 <%= image_tag @facility.pictures.first.image.url(:large) if @facility.pictures.first %>
 
-<% if current_user.site_admin? || @facility_user.facility_id === @facility.id%>
+<% if current_user.site_admin? %>
 <%= link_to 'Edit', edit_facility_path(@facility) %> |
 <% end %>
 

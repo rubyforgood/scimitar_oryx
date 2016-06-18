@@ -25,11 +25,12 @@ class Animal < ActiveRecord::Base
   accepts_nested_attributes_for :pictures
 
   def age
+    return unless date_of_birth.present?
     ((Time.now - date_of_birth.to_time) / 1.year).round
   end
 
   def gender
-    sex.name
+    sex.try :name
   end
 
   VALID_INTERESTS.each do |interest|
