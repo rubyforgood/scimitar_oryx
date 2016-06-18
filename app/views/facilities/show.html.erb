@@ -5,9 +5,7 @@
   <%= @facility.name %>
 </p>
 
-<% if @facility.pictures.first %>
-  <%= image_tag @facility.pictures.first.image.url(:large) %>
-<% end %>
+<%= image_tag @facility.pictures.first.image.url(:large) if @facility.pictures.first %>
 
 <%= link_to 'Edit', edit_facility_path(@facility) %> |
 <%= link_to 'Back', facilities_path %>
@@ -16,10 +14,10 @@
 <%= link_to 'Add Animal', new_animal_path(facility_id: @facility.id) %>
 <%= render @facility.animals %>
 
-<%= chart(:PieChart, @facilityGenderPercent) %>
-
-<%= chart(:GeoChart, [['State', 'Animals'],['US-IL', 2], ['US-IN', 5],['US-IA', 1],['US-TX', 2], ['US-CA', 7],['US-VA', 6]], region: "US", resolution: "provinces") %>
+<%= chart(:PieChart, [['Gender','Total']]+@facility.animals.reduce(Hash.new(0)){ |s, e| s[e.gender] += 1; s}.to_a ) %>
 
 <%= chart(:Histogram, [['Animal', 'Age']]+@facility.animals.map{ |e| [e.name, e.age]}, title: "Age distribution") %>
 
+TODO: geo chart still has fake data
+<%= chart(:GeoChart, [['State', 'Animals'],['US-IL', 2], ['US-IN', 5],['US-IA', 1],['US-TX', 2], ['US-CA', 7],['US-VA', 6]], region: "US", resolution: "provinces") %>
 

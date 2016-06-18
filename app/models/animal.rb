@@ -14,4 +14,8 @@ class Animal < ActiveRecord::Base
   def age
     ((Time.now - date_of_birth.to_time) / 1.year).round
   end
+
+  def gender
+    {1 => 'male', 2 => 'female'}[sex_id]
+  end
 end
