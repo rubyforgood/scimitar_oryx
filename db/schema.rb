@@ -11,10 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618152843) do
+ActiveRecord::Schema.define(version: 20160618192348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "cube"
+  enable_extension "earthdistance"
 
   create_table "animals", force: :cascade do |t|
     t.string   "name"
@@ -53,7 +55,6 @@ ActiveRecord::Schema.define(version: 20160618152843) do
     t.boolean  "temperture_controled"
     t.boolean  "water_features"
     t.boolean  "supplemental_feed"
-    t.integer  "facility_expertise_id"
     t.text     "interests",             default: ["grow_herd_size"],              array: true
     t.integer  "facility_expertise_id"
     t.string   "address"
