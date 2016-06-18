@@ -17,12 +17,13 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'paperclip', github: "thoughtbot/paperclip"
+gem 'paperclip'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'dotenv'
 gem 'acts_as_list'
 gem 'simple_form'
-gem 'aws-sdk'
+gem 'aws-sdk-v1' #for paperclip
+gem 'aws-sdk', '> 2'
 gem 'geocoder'
 
 gem 'rails_12factor', group: :production
