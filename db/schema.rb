@@ -57,12 +57,9 @@ ActiveRecord::Schema.define(version: 20160618152843) do
     t.boolean  "supplemental_feed"
     t.integer  "facility_expertise_id"
     t.text     "interests",             default: ["grow_herd_size"],              array: true
-<<<<<<< HEAD
-=======
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
->>>>>>> master
   end
 
   add_index "facilities", ["facility_expertise_id"], name: "index_facilities_on_facility_expertise_id", using: :btree
