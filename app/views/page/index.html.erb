@@ -1,3 +1,8 @@
-<h1>Save the Scimitar Oryx</h1>
-
-<%= link_to "Animals", animals_path %>
+<div class="col-md-4 col-md-offset-4">
+  <form method="get" action="<%= search_animals_path %>" class="form-inline">
+    <fieldset class="form-group">
+      <input name="q" placeholder="Scimitar-horned Oryx">
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+</div>
