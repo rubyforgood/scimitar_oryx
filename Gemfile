@@ -23,6 +23,7 @@ gem 'acts_as_list'
 gem 'simple_form'
 gem 'geocoder'
 gem 'aws-sdk'
+gem 'geocoder'
 
 group :development, :test do
   gem 'byebug'
