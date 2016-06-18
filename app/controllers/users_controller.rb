@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
   def index
     if params[:approved] == "false"
@@ -7,5 +7,8 @@ class UserController < ApplicationController
       @users = User.all
     end
   end
-  
+
+  def show
+  end
+
 end
