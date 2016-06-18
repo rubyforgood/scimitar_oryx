@@ -21,7 +21,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'dotenv'
 gem 'acts_as_list'
 gem 'simple_form'
-gem 'geocoder'
 gem 'aws-sdk'
 gem 'geocoder'
 
