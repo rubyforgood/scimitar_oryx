@@ -29,4 +29,9 @@ FacilityType.create(name: 'Institution')
 FacilityType.create(name: 'Ranch')
 FacilityType.create(name: 'Individual')
 
+FacilityExpertise.create(name: 'Convervation breeding')
+FacilityExpertise.create(name: 'Reproductive Science')
+FacilityExpertise.create(name: 'Biobanking')
+FacilityExpertise.create(name: 'Natural Resource Management')
+
 Facility.create(name: 'Example Ranch', facility_type_id: 2)

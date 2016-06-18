@@ -1,23 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @animal.facility.name %></h1>
-<h2><%= @animal.name %></h2>
-<h3>Date of Birth: <%= @animal.date_of_birth %></h3>
-<h3>Studbook: <%= @animal.studbook %></h3>
-<h3>Sire: <%= @animal.sire %></h3>
-<h3>Dam: <%= @animal.dam %></h3>
-<h3>Tag: <%= @animal.tag %></h3>
-<h3>Comments: <%= @animal.comments %></h3>
-<h3>Searchable: <%= @animal.searchable %></h3>
-
-<% if current_user.site_admin? || FacilityUser.find_by(user_id: current_user.id).facility_id === @animal.facility_id%>
-  <%= link_to 'Edit', edit_animal_path(@animal) %> |
-<% end %>
-<!-- # <%= link_to 'Edit', edit_animal_path(@animal) %> | -->
-<%= link_to 'Back', animals_path %>
-<br/>
-
-<% @animal.pictures.each do |p| %>
-  <%= image_tag p.image.url(:large) %>
-  <br/>
-<% end %>
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">
+      <%= @animal.name %>
+      <small>from <%= @animal.facility.name %></small>
+    </h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <%= image_tag @animal.pictures.first.image.url(:portfolio_large), class: "img-responsive" %>
+  </div>
+  <div class="col-md-4">
+    <h3>Description</h3>
+    <p>
+      Date of Birth: <%= @animal.date_of_birth %>
+      <br/>
+      Studbook: <%= @animal.studbook %>
+      <br/>
+      Sire: <%= @animal.sire %>
+      <br/>
+      Dam: <%= @animal.dam %>
+      <br/>
+      Tag: <%= @animal.tag %>
+      <br/>
+      Comments: <%= @animal.comments %>
+      <br/>
+      Searchable: <%= @animal.searchable %>
+    </p>
+    <h3>Actions</h3>
+    <p>
+      <% if current_user.site_admin? || FacilityUser.find_by(user_id: current_user.id).facility_id === @animal.facility_id%>
+        <%= link_to 'Edit', edit_animal_path(@animal) %> |
+      <% end %>
+      <%= link_to 'Back', animals_path %>
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <h3 class="page-header">More Images</h3>
+  </div>
+  <% @animal.pictures.each do |p| %>
+    <div class="col-sm-3 col-xs-6">
+      <%= image_tag p.image.url(:portfolio_small), class: "img-responsive" %>
+    </div>
+  <% end %>
+</div>

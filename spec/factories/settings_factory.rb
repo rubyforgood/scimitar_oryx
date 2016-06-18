@@ -3,4 +3,8 @@ FactoryGirl.define do
     name "Scimitar-horned Oryx"
     position 1
   end
+
+  factory :sex do
+    name "Female"
+  end
 end

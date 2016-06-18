@@ -9,6 +9,13 @@
     <%= p.label :image %>
     <%= p.file_field :image %>
   <% end %>
-  <br/>
+
+  <%= f.input :facility_expertise_id, collection: FacilityExpertise.all %>
+  <%= f.input :spa %>
+  <%= f.input :acreage %>
+  <%= f.input :endangered_acreage %>
+  <%= f.input :temperture_controled %>
+  <%= f.input :water_features %>
+  <%= f.input :supplemental_feed %>
   <%= f.button :submit %>
 <% end %>
