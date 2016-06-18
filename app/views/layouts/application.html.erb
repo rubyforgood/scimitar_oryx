@@ -23,8 +23,9 @@
       <ul class="nav nav-pills pull-bottom-right">
         <li class="nav-item">
           <%= link_to 'Animals', animals_path, class: 'nav-link' %>
+          <%= link_to 'Facilities', facilities_path, class: 'nav-link' %>
         </li>
-        <% if current_user %>
+        <% if user_signed_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">username</a>
             <div class="dropdown-menu">
@@ -32,8 +33,7 @@
               <a class="dropdown-item" href="#">Action 2</a>
               <a class="dropdown-item" href="#">Action 3</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Logout</a>
-              <%= link_to 'Logout', destroy_user_session_path, class: 'nav-link' %>
+              <%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: 'nav-link' %>
             </div>
           </li>
         <% else %>
