@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618144947) do
+ActiveRecord::Schema.define(version: 20160618145732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "animals", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                                                         null: false
+    t.datetime "updated_at",                                                         null: false
     t.integer  "species_id"
     t.integer  "facility_id"
     t.date     "date_of_birth"
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 20160618144947) do
 
   create_table "facilities", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
     t.integer  "facility_type_id"
     t.boolean  "spa"
     t.float    "acreage"
@@ -53,9 +53,9 @@ ActiveRecord::Schema.define(version: 20160618144947) do
     t.boolean  "temperture_controled"
     t.boolean  "water_features"
     t.boolean  "supplemental_feed"
-    t.text     "interests",            default: ["grow_herd_size"],              array: true
-    t.integer  "facility_expertise_id"  
-end
+    t.integer  "facility_expertise_id"
+    t.text     "interests",             default: ["grow_herd_size"],              array: true
+  end
 
   add_index "facilities", ["facility_expertise_id"], name: "index_facilities_on_facility_expertise_id", using: :btree
   add_index "facilities", ["facility_type_id"], name: "index_facilities_on_facility_type_id", using: :btree
