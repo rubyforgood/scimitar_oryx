@@ -1,6 +1,9 @@
 class Animal < ActiveRecord::Base
   belongs_to :facility
   belongs_to :species
+  belongs_to :sex
+  belongs_to :rearing
+  belongs_to :reproductive_status
 
   has_many :pictures, :dependent => :destroy
 
@@ -16,6 +19,6 @@ class Animal < ActiveRecord::Base
   end
 
   def gender
-    {1 => 'male', 2 => 'female'}[sex_id]
+    sex.name
   end
 end

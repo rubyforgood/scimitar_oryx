@@ -14,6 +14,17 @@ Species.create(name: 'Sable Antelope')
 Species.create(name: 'Tajik Markhor')
 Species.create(name: 'Transcaspian Urial')
 
+Sex.create(name: 'Male')
+Sex.create(name: 'Female')
+Sex.create(name: 'Unknown')
+
+Rearing.create(name: 'Parent reared')
+Rearing.create(name: 'Hand reared')
+
+ReproductiveStatus.create(name: 'Unproven')
+ReproductiveStatus.create(name: 'Proven')
+ReproductiveStatus.create(name: 'Post-reproductive')
+
 FacilityType.create(name: 'Institution')
 FacilityType.create(name: 'Ranch')
 FacilityType.create(name: 'Individual')
