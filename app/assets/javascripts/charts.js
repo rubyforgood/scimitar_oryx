@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  google.charts.load('current', {'packages':['corechart', 'geochart']}); /* remember to add packages if you use fancy charts */
+  google.charts.load('current', {'packages':['corechart', 'geochart', 'map']}); /* remember to add packages if you use fancy charts */
   function mergeOptions(obj1,obj2){
     var obj3 = {};
     for(var attr in obj1){ obj3[attr] = obj1[attr] }
