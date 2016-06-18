@@ -8,7 +8,7 @@ RSpec.describe FacilitiesController, type: :controller do
 
   describe "GET #index" do
     before do
-      sign_in
+      sign_in(create(:user))
     end
     it "assigns all facilities as @facilities" do
       facility = Facility.create! valid_facility.attributes
@@ -24,7 +24,7 @@ RSpec.describe FacilitiesController, type: :controller do
 
   describe "GET #show" do
     before do
-      sign_in
+      sign_in(create(:user))
     end
     it "assigns the requested facility as @facility" do
       facility = Facility.create! valid_facility.attributes
@@ -41,7 +41,7 @@ RSpec.describe FacilitiesController, type: :controller do
 
   describe "GET #new" do
     before do
-      sign_in
+      sign_in(create(:user))
     end
     it "assigns a new facility as @facility" do
       get :new, {}, valid_session
@@ -55,7 +55,7 @@ RSpec.describe FacilitiesController, type: :controller do
 
   describe "GET #edit" do
     before do
-      sign_in
+      sign_in(create(:user))
     end
     it "assigns the requested facility as @facility" do
       facility = Facility.create! valid_facility.attributes
@@ -71,7 +71,7 @@ RSpec.describe FacilitiesController, type: :controller do
 
   describe "POST #create" do
     before do
-      sign_in
+      sign_in(create(:user))
     end
     context "with valid params" do
       it "creates a new Facility" do
@@ -107,7 +107,7 @@ RSpec.describe FacilitiesController, type: :controller do
 
   describe "PUT #update" do
     before do
-      sign_in
+      sign_in(create(:user))
     end
     context "with valid params" do
       new_attributes = { name: 'Smithonian'}
@@ -150,7 +150,7 @@ RSpec.describe FacilitiesController, type: :controller do
 
   describe "DELETE #destroy" do
     before do
-      sign_in
+      sign_in(create(:user))
     end
     it "destroys the requested facility" do
       facility = Facility.create! valid_facility.attributes
