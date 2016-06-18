@@ -38,6 +38,11 @@ RSpec.describe FacilitiesController, type: :controller do
       get :index, {}, valid_session
       expect(assigns(:facilities)).to eq([facility])
     end
+    it "renders the index template" do
+      facility = Facility.create! valid_facility.attributes
+      get :index, {}, valid_session
+      expect(response).to render_template(:index)
+    end
   end
 
   describe "GET #show" do
@@ -46,12 +51,22 @@ RSpec.describe FacilitiesController, type: :controller do
       get :show, {:id => facility.to_param}, valid_session
       expect(assigns(:facility)).to eq(facility)
     end
+
+    it "renders the show template" do
+      facility = Facility.create! valid_facility.attributes
+      get :show, {:id => facility.to_param}, valid_session
+      expect(response).to render_template(:show)
+    end
   end
 
   describe "GET #new" do
     it "assigns a new facility as @facility" do
       get :new, {}, valid_session
       expect(assigns(:facility)).to be_a_new(Facility)
+    end
+    it "renders the new template" do
+      get :new, {}, valid_session
+      expect(response).to render_template(:new)
     end
   end
 
@@ -60,6 +75,11 @@ RSpec.describe FacilitiesController, type: :controller do
       facility = Facility.create! valid_facility.attributes
       get :edit, {:id => facility.to_param}, valid_session
       expect(assigns(:facility)).to eq(facility)
+    end
+    it "renders the edit template" do
+      facility = Facility.create! valid_facility.attributes
+      get :edit, {:id => facility.to_param}, valid_session
+      expect(response).to render_template(:edit)
     end
   end
 
