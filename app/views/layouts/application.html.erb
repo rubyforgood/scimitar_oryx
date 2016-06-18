@@ -16,42 +16,34 @@
 <div id="main-container" class="container">
   <div class="row header-row">
     <div class="col-xs-4">
-      <%= image_tag 'spa_logo_horizontal_pms.jpg', alt: "Source Population Alliance", class: 'main-logo' %>
+      <a href="<%= root_path %>"><%= image_tag 'spa_logo_horizontal_pms.jpg', alt: "Source Population Alliance", class: 'main-logo' %></a>
     </div>
     <div class="col-xs-8">
-
-      <ul class="nav nav-pills pull-bottom-right">
-        <li class="nav-item">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
           <%= link_to 'Animals', animals_path, class: 'nav-link' %>
+        </li>
+        <li>
           <%= link_to 'Facilities', facilities_path, class: 'nav-link' %>
         </li>
         <% if user_signed_in? %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">username</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action 1</a>
-              <a class="dropdown-item" href="#">Action 2</a>
-              <a class="dropdown-item" href="#">Action 3</a>
-              <div class="dropdown-divider"></div>
-              <%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: 'nav-link' %>
-            </div>
+          <li>
+            <%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: 'nav-link' %>
           </li>
         <% else %>
-          <li class="nav-item">
+          <li>
             <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
           </li>
-          <li class="nav-item">
+          <li>
             <%= link_to 'Login', new_user_session_path, class: 'nav-link' %>
           </li>
         <% end %>
       </ul>
-
     </div>
   </div>
 
   <div class="row">
     <div class="col-xs-12">
-
       <%= yield %>
     </div>
   </div>

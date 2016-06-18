@@ -10,7 +10,6 @@ class Facility < ActiveRecord::Base
 
   validates :name, presence: true
   validates :facility_type_id, presence: true
-  validates :name, presence: true
 
   accepts_nested_attributes_for :pictures
 

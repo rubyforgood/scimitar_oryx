@@ -1,19 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "animals/index", type: :view do
-  before(:each) do
-    assign(:animals, [
-      Animal.create!(
-        :name => "Name"
-      ),
-      Animal.create!(
-        :name => "Name"
-      )
-    ])
-  end
 
   it "renders a list of animals" do
+    facility = create(:facility)
+    assign(:animals, [
+      create(:sample_animal, facility: facility),
+    ])
+
     render
-    assert_select "tr>td", :text => "Name".to_s, :count => 2
+    assert_select "div.animal", :count => 1
   end
 end
