@@ -3,11 +3,10 @@ google.charts.load('current', {'packages':['corechart']});
 $(".piechart").each(function(i,obj) {
   google.charts.setOnLoadCallback(drawChart);
   function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Gender', 'total'],
-      ['Male', 2],
-      ['Female', 14]
-    ]);
+    var data = google.visualization.arrayToDataTable(
+      JSON.parse($(obj)
+        .data("charts"))
+    );
 
     var options = {
       title: 'Total Gender Percents'

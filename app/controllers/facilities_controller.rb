@@ -10,6 +10,7 @@ class FacilitiesController < ApplicationController
   # GET /facilities/1
   # GET /facilities/1.json
   def show
+    @facilityGenderPercent = [['gender','total'],['male',2],['female',15]]
   end
 
   # GET /facilities/new

@@ -13,8 +13,8 @@
 <%= render @facility.animals %>
    
 
-  
- 
-    <div id="facilityGenderPercent" class="piechart" data-chart="<%= @facilityGenderPercent %>"></div>
+  <%= chart("piechart",@facilityGenderPercent) %>
+
+    <!--<div id="facilityGenderPercent" class="piechart" data-chart="<%= @facilityGenderPercent %>"></div>-->
 
 
