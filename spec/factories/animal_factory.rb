@@ -20,7 +20,7 @@ FactoryGirl.define do
   end
 
   factory :sample_animal , class: Animal do
-    id {Faker::Number.between(41,999999999)}
+    #id {Faker::Number.between(41,999999999)}
     name {Faker::Name.first_name}
     date_of_birth {Faker::Date.between(25.years.ago,Date.today)}
     studbook {Faker::Number.number(10)}
@@ -29,12 +29,10 @@ FactoryGirl.define do
     tag {Faker::Number.between(41,999999999)}
     comments {Faker::StarWars.quote}
     searchable true
-    pictures { [ create(:picture) ] }
     facility_id {Faker::Number.between(1,10)}
     species_id {[1,2,3,4,5,6,7].sample}
-    species
     sex_id {[1,2].sample}
-    sex
+    #sex
     # rearing
     reproductive_status_id {[1, 2, 3].sample}
   end
