@@ -16,6 +16,7 @@ class AnimalsController < ApplicationController
   # GET /animals/new
   def new
     @animal = Animal.new(facility_id: params[:facility_id])
+    @animal.pictures.build
   end
 
   # GET /animals/1/edit
@@ -83,6 +84,7 @@ class AnimalsController < ApplicationController
         :sex_id,
         :rearing_id,
         :reproductive_status_id,
+        pictures_attributes: [:name, :image]
         )
     end
 end
