@@ -1,5 +1,6 @@
 class FacilitiesController < ApplicationController
   before_action :set_facility, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show]
 
   # GET /facilities
   # GET /facilities.json
@@ -14,7 +15,8 @@ class FacilitiesController < ApplicationController
 
   # GET /facilities/new
   def new
-    @facility = Facility.new()
+    @facility = Facility.new
+    @facility.facilities_users.build
     @facility.pictures.build
   end
 
@@ -70,6 +72,6 @@ class FacilitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def facility_params
-      params.require(:facility).permit(:name, pictures_attributes: [:name, :image])
+      params.require(:facility).permit(:name, pictures_attributes: [:name, :image], :facility_type_id, :facilities_users_attributes => [:user_id, :facility_id])
     end
 end
