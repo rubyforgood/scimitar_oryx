@@ -15,7 +15,8 @@ class FacilitiesController < ApplicationController
 
   # GET /facilities/new
   def new
-    @facility = Facility.new
+    @facility = Facility.new()
+    @facility.pictures.build
   end
 
   # GET /facilities/1/edit
@@ -70,6 +71,6 @@ class FacilitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def facility_params
-      params.require(:facility).permit(:name)
+      params.require(:facility).permit(:name, pictures_attributes: [:name, :image])
     end
 end
