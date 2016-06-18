@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'aws-sdk', '< 2.0'
 gem 'rails', '4.2.6'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -22,15 +21,20 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'dotenv'
 gem 'acts_as_list'
 gem 'simple_form'
+gem 'geocoder'
+gem 'aws-sdk'
+gem 'geocoder'
 
 group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
+  gem 'pry'
+  gem 'pry-remote'
+  gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'quiet_assets'
-  gem 'pry'
 end
 
 group :development do
