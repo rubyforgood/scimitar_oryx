@@ -10,11 +10,12 @@ FactoryGirl.define do
     searchable true
     facility
     species
-    # sex
+    sex
     # rearing
     # reproductive_status
   end
-   factory :sample_animal , class: Animal do
+
+  factory :sample_animal , class: Animal do
     name {Faker::Name.first_name}
     date_of_birth {Faker::Date.between(25.years.ago,Date.today)}
     studbook {Faker::Number.number(10)}
@@ -25,7 +26,7 @@ FactoryGirl.define do
     searchable true
     facility_id {Faker::Number.between(1,30)}
     species_id {[1,2,3,4,5,6,7].sample}
-    sex_id {[1,2].sample}
+    sex
     # rearing
     reproductive_status_id {[1, 2, 3].sample}
   end

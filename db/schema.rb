@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160617204224) do
+ActiveRecord::Schema.define(version: 20160618144947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20160617204224) do
     t.integer  "sex_id"
     t.integer  "rearing_id"
     t.integer  "reproductive_status_id"
+    t.string   "transponder"
+    t.text     "interests",              default: ["keep", "sell", "trade", "loan"],              array: true
   end
 
   add_index "animals", ["facility_id"], name: "index_animals_on_facility_id", using: :btree
@@ -42,11 +44,20 @@ ActiveRecord::Schema.define(version: 20160617204224) do
 
   create_table "facilities", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.integer  "facility_type_id"
-  end
+    t.boolean  "spa"
+    t.float    "acreage"
+    t.float    "endangered_acreage"
+    t.boolean  "temperture_controled"
+    t.boolean  "water_features"
+    t.boolean  "supplemental_feed"
+    t.text     "interests",            default: ["grow_herd_size"],              array: true
+    t.integer  "facility_expertise_id"  
+end
 
+  add_index "facilities", ["facility_expertise_id"], name: "index_facilities_on_facility_expertise_id", using: :btree
   add_index "facilities", ["facility_type_id"], name: "index_facilities_on_facility_type_id", using: :btree
 
   create_table "facilities_users", force: :cascade do |t|
