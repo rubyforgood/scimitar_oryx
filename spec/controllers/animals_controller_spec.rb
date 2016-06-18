@@ -31,10 +31,10 @@ RSpec.describe AnimalsController, type: :controller do
 
   describe "GET #index" do
     it "assigns all animals as @animals" do
-      #binding.pry
       animal = Animal.create! valid_animal.attributes
       get :index, {}, valid_session
       expect(assigns(:animals)).to eq([animal])
+      expect(response).to render_template(:index)
     end
   end
 
@@ -43,6 +43,7 @@ RSpec.describe AnimalsController, type: :controller do
       animal = Animal.create! valid_animal.attributes
       get :show, {:id => animal.to_param}, valid_session
       expect(assigns(:animal)).to eq(animal)
+      expect(response).to render_template(:show)
     end
   end
 
@@ -50,6 +51,7 @@ RSpec.describe AnimalsController, type: :controller do
     it "assigns a new animal as @animal" do
       get :new, {}, valid_session
       expect(assigns(:animal)).to be_a_new(Animal)
+      expect(response).to render_template(:new)
     end
   end
 
@@ -58,6 +60,7 @@ RSpec.describe AnimalsController, type: :controller do
       animal = Animal.create! valid_animal.attributes
       get :edit, {:id => animal.to_param}, valid_session
       expect(assigns(:animal)).to eq(animal)
+      expect(response).to render_template(:edit)
     end
   end
 
@@ -96,7 +99,7 @@ RSpec.describe AnimalsController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      new_attributes = { comments: "This animal like quiet spaces" }
+      new_attributes = { comments: "This animal likes quiet spaces" }
 
       it "updates the requested animal" do
         animal = Animal.create! valid_animal.attributes
