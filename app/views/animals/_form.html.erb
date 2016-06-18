@@ -17,11 +17,20 @@
   <%= f.input :tag %>
   <%= f.input :searchable %>
   <%= f.input :comments %>
-  <%= f.simple_fields_for :pictures do |p| %>
-    <%= p.label :image %>
-    <%= p.file_field :image %>
-  <% end %>
+  <%= f.label :images %>
+  <br/>
 
+  <%= f.simple_fields_for :pictures do |p| %>
+    <% if p.object.id.nil? %>
+    <%= p.file_field :image %>
+    <% else %>
+    <%= p.label 'delete' do %>
+      <%= p.label :delete %>
+      <%= p.check_box :image_delete %>
+      <%= p.object.image_file_name %>
+    <% end %>
+    <% end %>
+  <% end %>
   <br/>
 
   <%= f.button :submit %>
