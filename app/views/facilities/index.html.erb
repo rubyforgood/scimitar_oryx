@@ -15,8 +15,12 @@
       <tr>
         <td><%= facility.name %></td>
         <td><%= link_to 'Show', facility %></td>
+
+        <% if current_user.site_admin? %>
         <td><%= link_to 'Edit', edit_facility_path(facility) %></td>
         <td><%= link_to 'Destroy', facility, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
