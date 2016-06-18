@@ -24,7 +24,7 @@ FactoryGirl.define do
     tag {Faker::Number.between(41,999999999)}
     comments {Faker::StarWars.quote}
     searchable true
-    facility_id {Faker::Number.between(1,30)}
+    facility_id {Faker::Number.between(1,10)}
     species_id {[1,2,3,4,5,6,7].sample}
     sex
     # rearing
