@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  if(window.GOOGLE_CHARTS_LOADED == true) return;
+  window.GOOGLE_CHARTS_LOADED = true;
   google.charts.load('current', {'packages':['corechart', 'geochart', 'map']}); /* remember to add packages if you use fancy charts */
   function mergeOptions(obj1,obj2){
     var obj3 = {};
