@@ -10,7 +10,10 @@
 <h3>Comments: <%= @animal.comments %></h3>
 <h3>Searchable: <%= @animal.searchable %></h3>
 
-<%= link_to 'Edit', edit_animal_path(@animal) %> |
+<% if current_user.site_admin? || FacilityUser.find_by(user_id: current_user.id).facility_id === @animal.facility_id%>
+  <%= link_to 'Edit', edit_animal_path(@animal) %> |
+<% end %>
+<!-- # <%= link_to 'Edit', edit_animal_path(@animal) %> | -->
 <%= link_to 'Back', animals_path %>
 <br/>
 
