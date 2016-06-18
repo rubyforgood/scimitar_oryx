@@ -72,7 +72,7 @@ class AnimalsController < ApplicationController
     end
 
     def set_facility
-      @facility = Facility.find(params[:facility_id])
+          @facility = @animal.facility.id 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
