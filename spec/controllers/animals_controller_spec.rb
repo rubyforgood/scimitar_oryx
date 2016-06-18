@@ -34,7 +34,6 @@ RSpec.describe AnimalsController, type: :controller do
       animal = Animal.create! valid_animal.attributes
       get :index, {}, valid_session
       expect(assigns(:animals)).to eq([animal])
-      expect(response).to render_template(:index)
     end
     it "renders the index template" do
       animal = Animal.create! valid_animal.attributes
@@ -48,7 +47,6 @@ RSpec.describe AnimalsController, type: :controller do
       animal = Animal.create! valid_animal.attributes
       get :show, {:id => animal.to_param}, valid_session
       expect(assigns(:animal)).to eq(animal)
-      expect(response).to render_template(:show)
     end
     it "renders the show template" do
       animal = Animal.create! valid_animal.attributes
@@ -61,7 +59,6 @@ RSpec.describe AnimalsController, type: :controller do
     it "assigns a new animal as @animal" do
       get :new, {}, valid_session
       expect(assigns(:animal)).to be_a_new(Animal)
-      expect(response).to render_template(:new)
     end
     it "renders the new template" do
       get :new, {}, valid_session
@@ -74,7 +71,6 @@ RSpec.describe AnimalsController, type: :controller do
       animal = Animal.create! valid_animal.attributes
       get :edit, {:id => animal.to_param}, valid_session
       expect(assigns(:animal)).to eq(animal)
-      expect(response).to render_template(:edit)
     end
     it "renders the edit template" do
       animal = Animal.create! valid_animal.attributes
