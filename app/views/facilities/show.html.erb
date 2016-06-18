@@ -11,10 +11,7 @@
 <h2>Animals</h2>
 <%= link_to 'Add Animal', new_animal_path(facility_id: @facility.id) %>
 <%= render @facility.animals %>
-   
 
-  <%= chart("piechart",@facilityGenderPercent) %>
-
-    <!--<div id="facilityGenderPercent" class="piechart" data-chart="<%= @facilityGenderPercent %>"></div>-->
+<%= chart("piechart", @facilityGenderPercent, title: "Total Gender Percents") %>
 
 

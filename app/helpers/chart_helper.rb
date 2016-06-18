@@ -1,10 +1,12 @@
 module ChartHelper
-	def chart(type,data,id=nil)
+	def chart(type, data, opts={})
 		content_tag(:div, "",
-			{class: type,
-			id: (id || SecureRandom.uuid),
-			"data-chart" => data.to_json.tr('"','\\"')},
-			escape=true
-		)
+			class: type,
+			id: (opts.delete(:id) || SecureRandom.uuid),
+      data: {
+        data: {data: data}.to_json,
+        options: opts.to_json
+      }
+		).html_safe
 	end
 end
