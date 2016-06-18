@@ -21,7 +21,8 @@
       <th>Sire</th>
       <th>Dam</th>
       <th>Reproductive Status</th>
-      
+      <th>Age</th>
+      <th>Facility Name</th>
     </thead>
     <tbody>
     <% @nearby_animals.each do |n| %>
@@ -32,7 +33,8 @@
         <td><%=n.sire %></td>
         <td><%=n.dam %></td>
         <td><%=n.reproductive_status_id %></td>
-
+        <td><%=n.age%></td>
+        <td><%=n.facility.name %></td>
       </tr>
     <% end %>
     </tbody>
