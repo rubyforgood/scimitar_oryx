@@ -1,7 +1,14 @@
-<%= simple_form_for(@facility) do |f| %>
+<%= simple_form_for(@facility, multipart: true) do |f| %>
   <%= f.error_notification %>
 
   <%= f.input :name %>
   <%= f.input :facility_id, collection: FacilityType.all %>
+  <%= f.simple_fields_for :pictures do |p| %>
+    <%= p.label :image %>
+    <%= p.file_field :image %>
+  <% end %>
+
+  <br/>
+
   <%= f.button :submit %>
 <% end %>

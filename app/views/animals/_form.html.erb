@@ -1,4 +1,4 @@
-<%= simple_form_for(@animal) do |f| %>
+<%= simple_form_for(@animal, multipart: true) do |f| %>
   <%= f.error_notification %>
 
   <%= f.input :name %>
@@ -11,6 +11,12 @@
   <%= f.input :tag %>
   <%= f.input :searchable %>
   <%= f.input :comments %>
+  <%= f.simple_fields_for :pictures do |p| %>
+    <%= p.label :image %>
+    <%= p.file_field :image %>
+  <% end %>
+
+  <br/>
 
   <%= f.button :submit %>
 <% end %>
