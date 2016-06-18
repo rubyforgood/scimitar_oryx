@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe FacilitiesController, type: :controller do
 
   let(:valid_facility) { build :facility}
-  let(:invalid_facility) { build :facility, name: nil}
+  let(:invalid_facility) { build :facility, facility_type_id: ''}
   let(:valid_session) { {} }
 
   describe "GET #index" do

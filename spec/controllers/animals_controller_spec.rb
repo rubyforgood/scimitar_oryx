@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe AnimalsController, type: :controller do
 
   let(:valid_animal) { build :sample_animal }
-  let(:invalid_animal) { build :sample_animal, name: nil }
+  let(:invalid_animal) { build :sample_animal, date_of_birth: '' }
   let(:valid_session) {{}}
 
   describe "GET #index" do
@@ -132,15 +132,16 @@ RSpec.describe AnimalsController, type: :controller do
     end
 
     context "with invalid params" do
+      bad_attributes = { name: nil }
       it "assigns the animal as @animal" do
         animal = Animal.create! valid_animal.attributes
-        put :update, {:id => animal.to_param, :animal => invalid_animal.attributes}, valid_session
+        put :update, {:id => animal.to_param, :animal => bad_attributes}, valid_session
         expect(assigns(:animal)).to eq(animal)
       end
 
       it "re-renders the 'edit' template" do
         animal = Animal.create! valid_animal.attributes
-        put :update, {:id => animal.to_param, :animal => invalid_animal.attributes}, valid_session
+        put :update, {:id => animal.to_param, :animal => bad_attributes}, valid_session
         expect(response).to render_template("edit")
       end
     end
