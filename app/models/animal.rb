@@ -10,4 +10,8 @@ class Animal < ActiveRecord::Base
   validates :date_of_birth, presence: true
 
   accepts_nested_attributes_for :pictures
+
+  def age
+    ((Time.now - date_of_birth.to_time) / 1.year).round
+  end
 end

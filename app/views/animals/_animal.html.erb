@@ -3,6 +3,6 @@
   <h4> <%= animal.species.name %> </h4>
 
   <%= link_to animal_path(animal) do %>
-  <%= image_tag animal.pictures.first.image.url(:large) %>
+  <%= image_tag animal.pictures.first.image.url(:large) if animal.pictures.first %>
   <% end %>
 </div>
