@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="animal col-md-4">
   <%= link_to animal_path(animal) do %>
     <% if animal.pictures.first.present? %>
       <%= image_tag animal.pictures.first.image.url(:large), class: "img-responsive" %>
