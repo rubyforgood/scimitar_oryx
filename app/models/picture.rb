@@ -9,7 +9,7 @@ class Picture < ActiveRecord::Base
     medium: '300x300>',
     large:   '400x400>',
     portfolio_small: '500x300>',
-    portfolio_large: `750x500>`
+    portfolio_large: '750x500>'
   }
 
   # Validate the attached image is image/jpg, image/png, etc
