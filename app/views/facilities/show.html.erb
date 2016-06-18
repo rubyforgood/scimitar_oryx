@@ -14,7 +14,9 @@
 <%= link_to 'Add Animal', new_animal_path(facility_id: @facility.id) %>
 <%= render @facility.animals %>
 
-<%= chart(:PieChart, [['Gender','Total']]+@facility.animals.reduce(Hash.new(0)){ |s, e| s[e.gender] += 1; s}.to_a ) %>
+<%= chart(:PieChart, [['Gender', 'Total']]+@facility.animals.reduce(Hash.new(0)){ |s, e| s[e.gender] += 1; s}.to_a ) %>
+
+<%= chart(:PieChart, [['Species', 'Total']]+@facility.animals.reduce(Hash.new(0)){ |s, e| s[e.species.name] += 1; s}.to_a ) %>
 
 <%= chart(:Histogram, [['Animal', 'Age']]+@facility.animals.map{ |e| [e.name, e.age]}, title: "Age distribution") %>
 
