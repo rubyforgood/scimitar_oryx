@@ -69,5 +69,5 @@ Let's be honest, we all want to do great things. What is better than being part 
 - Some branding guidelines around logo, etc.
 
 #### Populate Sample Data (number can be changed)
+$ rake create_sample_data:sample_facilities[10]
 $ rake create_sample_data:sample_animals[100]
- 
