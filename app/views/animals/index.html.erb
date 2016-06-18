@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>All Animals</h1>
-<%= link_to 'New Animal', new_animal_path %>
+<div class="row">
+  <h1 class="page-header">
+    All Animals
+    <small><%= link_to 'New Animal', new_animal_path %></small>
+  </h1>
+</div>
 
-<%= render @animals %>
+<div class="row">
+  <%= render @animals %>
+</div>
 
 
 
