@@ -18,6 +18,8 @@ class Animal < ActiveRecord::Base
   validates :date_of_birth, presence: true
 
   scope :searchable, -> { where(searchable: true) }
+  scope :male, -> { where(sex_id: "1")}
+  scope :female, -> { where(sex_id: "2")} 
 
   VALID_INTERESTS = %w(keep sell trade loan).freeze
   before_save { |animal| animal.interests = animal.interests.uniq.select{ |e| VALID_INTERESTS.include?(e) } }
