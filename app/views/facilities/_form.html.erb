@@ -1,7 +1,9 @@
 <%= simple_form_for(@facility) do |f| %>
   <%= f.error_notification %>
-
+  <%= f.simple_fields_for :facilities_users do |fu| %>
+  	<%= fu.input :user_id, input_html: { value: current_user.id }, :as => :hidden %>
+  <% end %>
   <%= f.input :name %>
-  <%= f.input :facility_id, collection: FacilityType.all %>
+  <%= f.input :facility_type_id, collection: FacilityType.all %>
   <%= f.button :submit %>
 <% end %>
