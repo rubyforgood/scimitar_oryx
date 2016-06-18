@@ -26,11 +26,13 @@ gem 'aws-sdk'
 group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
+  gem 'pry'
+  gem 'pry-remote'
+  gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'quiet_assets'
-  gem 'pry'
 end
 
 group :development do
