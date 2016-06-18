@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @animal %> |
-<%= link_to 'Back', animals_path %>
+<%= link_to 'Show', facility_animal_path(@facility, @animal) %> |
+<%= link_to 'Back', facility_animals_path(@facility) %>

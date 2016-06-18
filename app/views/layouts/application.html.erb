@@ -20,11 +20,8 @@
       <a href="<%= root_path %>"><%= image_tag 'spa_logo_horizontal_pms.jpg', alt: "Source Population Alliance", class: 'main-logo' %></a>
     </div>
     <div class="col-xs-8">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to 'Animals', animals_path, class: 'nav-link' %>
-        </li>
-        <li>
+      <ul class="nav nav-pills pull-bottom-right">
+        <li class="nav-item">
           <%= link_to 'Facilities', facilities_path, class: 'nav-link' %>
         </li>
         <% if user_signed_in? %>

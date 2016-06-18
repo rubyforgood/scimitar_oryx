@@ -7,14 +7,14 @@
 
 <%= image_tag @facility.pictures.first.image.url(:large) if @facility.pictures.first %>
 
-<% if current_user.site_admin? || @facility_user.facility_id === @facility.id%>
+<% if current_user.site_admin? %>
 <%= link_to 'Edit', edit_facility_path(@facility) %> |
 <% end %>
 
 <%= link_to 'Back', facilities_path %>
 
 <h2>Animals</h2>
-<%= link_to 'Add Animal', new_animal_path(facility_id: @facility.id) %>
+<%= link_to 'Add Animal', new_facility_animal_path(facility_id: @facility.id) %>
 <%= render @facility.animals %>
 
 <%= chart(:PieChart, [['Gender', 'Total']]+@facility.animals.reduce(Hash.new(0)){ |s, e| s[e.gender] += 1; s}.to_a ) %>
