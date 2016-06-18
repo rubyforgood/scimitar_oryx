@@ -67,3 +67,7 @@ Let's be honest, we all want to do great things. What is better than being part 
 
 #### Design
 - Some branding guidelines around logo, etc.
+
+#### Populate Sample Data (number can be changed)
+$ rake create_sample_data:sample_animals[100]
+ 
