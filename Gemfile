@@ -16,12 +16,12 @@ end
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'paperclip'
+gem 'paperclip', github: "thoughtbot/paperclip"
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'dotenv'
 gem 'acts_as_list'
 gem 'simple_form'
-gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk'
 gem 'geocoder'
 
 group :development, :test do

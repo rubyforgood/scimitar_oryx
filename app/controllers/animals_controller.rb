@@ -9,11 +9,6 @@ class AnimalsController < ApplicationController
     @animals = @facility.animals.all
   end
 
-  def search
-    @animals = Animal.search(params[:q])
-    render :index
-  end
-
   # GET /animals/1
   # GET /animals/1.json
   def show
