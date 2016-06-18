@@ -10,7 +10,7 @@
 </div>
 <div class="row">
   <div class="col-md-8">
-    <%= image_tag @animal.pictures.first.image.url(:portfolio_large), class: "img-responsive" %>
+    <%= image_tag @animal.pictures.first.image.url(:portfolio_large), class: "img-responsive" if @animal.pictures.first.present? %>
   </div>
   <div class="col-md-4">
     <h3>Description</h3>
@@ -31,7 +31,9 @@
     </p>
     <h3>Actions</h3>
     <p>
-      <%= link_to 'Edit', edit_animal_path(@animal) %> |
+      <% if current_user.site_admin? || FacilityUser.find_by(user_id: current_user.id).facility_id === @animal.facility_id%>
+        <%= link_to 'Edit', edit_animal_path(@animal) %> |
+      <% end %>
       <%= link_to 'Back', animals_path %>
     </p>
   </div>

@@ -1,13 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "animals/new", type: :view do
-  before(:each) do
-    assign(:animal, Animal.new(
-      :name => "MyString"
-    ))
-  end
 
   it "renders new animal form" do
+    assign :animal, build(:animal)
+
     render
 
     assert_select "form[action=?][method=?]", animals_path, "post" do
