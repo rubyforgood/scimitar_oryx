@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :animal do
+    id 100
     name "JC"
     date_of_birth Date.parse("2016-06-16")
     studbook "123"
@@ -11,11 +12,15 @@ FactoryGirl.define do
     facility
     species
     sex
+    pictures { [ create(:picture) ] }
+
+    # sex_id
     # rearing
     # reproductive_status
   end
 
   factory :sample_animal , class: Animal do
+    id {Faker::Number.between(41,999999999)}
     name {Faker::Name.first_name}
     date_of_birth {Faker::Date.between(25.years.ago,Date.today)}
     studbook {Faker::Number.number(10)}
@@ -25,7 +30,10 @@ FactoryGirl.define do
     comments {Faker::StarWars.quote}
     searchable true
     facility_id {Faker::Number.between(1,30)}
+    pictures { [ create(:picture) ] }
     species_id {[1,2,3,4,5,6,7].sample}
+    species
+    sex_id {[1,2].sample}
     sex
     # rearing
     reproductive_status_id {[1, 2, 3].sample}
