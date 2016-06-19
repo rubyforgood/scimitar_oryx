@@ -5,10 +5,12 @@
   <% end %>
   <%= f.input :name %>
   <%= f.input :facility_type_id, collection: FacilityType.all %>
-  <%= f.simple_fields_for :pictures do |p| %>
-    <%= p.label :image %>
-    <%= p.file_field :image %>
-  <% end %>
+  <div class="form-group check_boxes optional facility_interests">
+    <%= f.simple_fields_for :pictures do |p| %>
+      <%= p.label :image %>
+      <%= p.file_field :image %>
+    <% end %>
+  </div>
 
   <%= f.input :facility_expertise_id, collection: FacilityExpertise.all %>
   <%= f.input :spa %>
