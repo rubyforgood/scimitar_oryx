@@ -1,47 +1,60 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ScimitarOryx</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <script type="text/javascript" src="//www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript" src="//www.google.com/jsapi"></script>
-
-</head>
-<body data-no-turbolink="true">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-<div id="main-container" class="container">
-  <div class="row header-row">
-    <div class="col-xs-4">
-      <a href="<%= root_path %>"><%= image_tag 'spa_logo_horizontal_pms.jpg', alt: "Source Population Alliance", class: 'main-logo' %></a>
-    </div>
-    <div class="col-xs-8">
-      <ul class="nav nav-pills pull-bottom-right">
-        <li class="nav-item">
-          <%= link_to 'Facilities', facilities_path, class: 'nav-link' %>
-        </li>
-        <% if user_signed_in? %>
-          <li>
-            <%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: 'nav-link' %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
-          </li>
-          <li>
-            <%= link_to 'Login', new_user_session_path, class: 'nav-link' %>
-          </li>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ScimitarOryx</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <script type="text/javascript" src="//www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="//www.google.com/jsapi"></script>
+  </head>
+  <body data-no-turbolink="true">
+    <div id="main-container" class="container" style="padding:10px;">
+      <nav class="navbar">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed navbar-default  text-success" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            Menu
+          </button>
+          <a href="<%= root_path %>" style="float:left;padding-left:15px;padding-right:15px;"><%= image_tag 'spa_logo_horizontal_pms_small.jpg', alt: "Source Population Alliance" %></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+              <%= link_to 'Facilities', facilities_path, class: 'nav-link' %>
+            </li>
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: 'nav-link' %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+              </li>
+              <li>
+                <%= link_to 'Login', new_user_session_path, class: 'nav-link' %>
+              </li>
+            <% end %>
+          </ul>
+          <%= render 'search/form' %>
+        </div>
+        <div class="row">
+          <% if notice %> 
+            <div class="alert alert-success alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <strong><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></strong> <%= notice %>
+          </div>
         <% end %>
-      </ul>
-    </div>
+        <% if alert %>
+          <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span></strong> <%= notice %> <%= alert %>
+        </div>
+      <% end %>
+    </nav>
+
+    <%= yield %>
   </div>
-  <%= yield %>
-</div>
-
-
 </body>
 </html>
