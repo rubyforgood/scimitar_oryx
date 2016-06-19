@@ -87,11 +87,7 @@ class AnimalsController < ApplicationController
     end
 
     def set_facility
-      if @animal.nil? #index
-        @facility = Facility.find(params[:facility_id])
-      else # animal profile
-        @facility = @animal.facility.id
-      end
+      @facility = Facility.find(params[:facility_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
