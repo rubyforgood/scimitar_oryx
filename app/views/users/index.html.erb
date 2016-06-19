@@ -1,0 +1,33 @@
+<h1> Hello <%= current_user.email %></h1>
+
+<h1> Users </h1>
+
+<%= link_to 'All Users', users_path %>
+|
+<%= link_to "Users awaiting approval", users_path(approved: "false")%>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>
+          Email
+        </th>
+        <th>
+          Approved?
+        </th>
+        <th>
+
+        </th>
+      </tr>
+    </thead>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email%></td>
+
+        <%= form_for user, :url => users_not_approved_path do |f| %>
+          <td><%= f.check_box :approved %></td>
+          <td><%= f.submit "Submit" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>

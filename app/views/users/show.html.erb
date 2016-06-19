@@ -6,12 +6,15 @@
 |
 <%= link_to "Users awaiting approval", users_path(approved: "false")%>
 
-<table>
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.email%></td>
-      <td><%= user.approved %></td>
-      <td><%= check_box_tag 'done', '1', user.approved %></td>
-    </tr>
-  <% end %>
-</table>
+  <table>
+    <% @users_not_approved.each do |user| %>
+      <tr>
+        <td><%= user.email%></td>
+        <td><%= user.approved %></td>
+        <% form_for user, :url => users_not_approved_path do |f| %>
+          <td><%= f.check_box :approved %></td>
+          <td><% f.submit "Submit" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>

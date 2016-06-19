@@ -1,16 +1,18 @@
 class UsersController < ApplicationController
 
   def index
-
+    @users = if params[:approved] == "false"
+              User.where(approved: false)
+            else
+              User.all
+            end
   end
 
   def show
-    @users = User.all
-    if params[:approved] == "false"
-      @users = User.find_by_approved(false)
-    else
-      @users = User.all
-    end
+  end
+
+  def not_approved
+    @user_not_approved = User.find(:id)
   end
 
 end
