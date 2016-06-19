@@ -13,7 +13,13 @@ class AnimalsController < ApplicationController
   # GET /animals/1.json
   def show
     @facility = @animal.facility.id 
-    @nearby_animals = Animal.male.where(:facility_id => @animal.facility.nearbys(50000).map(&:id),species_id: 7)
+    #worked yesterday, nearby not working today
+    #@nearby_animals = Animal.male.where(:facility_id => @animal.facility.nearbys(50000).map(&:id),species_id: 7)
+    if @animal.sex_id == "2"
+      @nearby_animals = Animal.male.where(species_id: @animal.species.id)
+    else
+      @nearby_animals = Animal.female.where(species_id: @animal.species.id)
+    end
   end
 
   # GET /animals/new
