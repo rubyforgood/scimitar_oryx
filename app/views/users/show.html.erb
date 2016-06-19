@@ -11,7 +11,7 @@
     <tr>
       <td><%= user.email%></td>
       <td><%= user.approved %></td>
-
+      <td><%= check_box_tag 'done', '1', user.approved %></td>
     </tr>
   <% end %>
 </table>

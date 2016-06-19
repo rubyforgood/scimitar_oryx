@@ -14,3 +14,5 @@ class UsersController < ApplicationController
   end
 
 end
+
+# This controller was added for the purpose of admin account approval
