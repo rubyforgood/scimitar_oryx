@@ -4,7 +4,7 @@
   <div class="col-lg-12">
     <h1 class="page-header">
       <%= @animal.name %>
-      <small>a <%=@animal.species.name%> from <%= @animal.facility.name %></small>
+      <small> from <%= @animal.facility.name %></small>
     </h1>
   </div>
 </div>
@@ -12,7 +12,21 @@
   <div class="col-md-8">
     <%= image_tag @animal.pictures.first.image.url(:portfolio_large), class: "img-responsive" if @animal.pictures.first.present? %>
     <div>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <h3>Featured Potential <%=@animal.species.name %> Mate</h3>
+  
+<div data-role="page" id="pageone">
+  <div data-role="main" class="ui-content">
+     
+        <%= image_tag @animal.pictures.first.image.url(:portfolio_large), class: "img-responsive antlr" if @animal.pictures.first.present? %>
+  </div>
+  </div>
+
     <h1> Close by Matches </h1>
+    <h2> filters </h2>
+
     <table>
     <thead>
       <th>Name</th>
@@ -26,7 +40,7 @@
     </thead>
     <tbody>
     <% @nearby_animals.each do |n| %>
-      <tr>
+      <tr age="<%=n.age%>">
         <td> <%= link_to n.name, animal_path(n.id)%> </td>
         <td><%=n.facility.name %></td>
         <td><%=n.age%></td>
@@ -44,6 +58,8 @@
   <div class="col-md-4">
     <h3>Description</h3>
     <p>
+      Species: <%= @animal.species.name %>
+      <br/>
       Date of Birth: <%= @animal.date_of_birth %>
       <br/>
       Studbook: <%= @animal.studbook %>

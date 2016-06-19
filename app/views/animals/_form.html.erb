@@ -13,10 +13,11 @@
   <%= f.input :dam, label: 'Dam' %>
   <%= f.input :tag %>
   <%= f.input :searchable %>
+  <%= f.input :searchable %>
   <%= f.input :comments %>
   <%= f.simple_fields_for :pictures do |p| %>
     <%= p.label :image %>
-    <%= p.file_field :image %>
+    <%= p.file_field :facility_id, value: params[:facility_id] %>
   <% end %>
 
   <br/>
