@@ -18,16 +18,6 @@ ActiveRecord::Schema.define(version: 20160619145037) do
   enable_extension "cube"
   enable_extension "earthdistance"
 
-  create_table "animal_matches", force: :cascade do |t|
-    t.integer  "animal_id"
-    t.integer  "potential_mate_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
-  add_index "animal_matches", ["animal_id"], name: "index_animal_matches_on_animal_id", using: :btree
-  add_index "animal_matches", ["potential_mate_id"], name: "index_animal_matches_on_potential_mate_id", using: :btree
-
   create_table "animals", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",                                                         null: false
@@ -65,8 +55,8 @@ ActiveRecord::Schema.define(version: 20160619145037) do
     t.boolean  "temperture_controled"
     t.boolean  "water_features"
     t.boolean  "supplemental_feed"
-    t.integer  "facility_expertise_id"
     t.text     "interests",             default: ["grow_herd_size"],              array: true
+    t.integer  "facility_expertise_id"
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
@@ -126,8 +116,6 @@ ActiveRecord::Schema.define(version: 20160619145037) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "animal_matches", "animals"
-  add_foreign_key "animal_matches", "animals", column: "potential_mate_id"
   add_foreign_key "pictures", "animals"
   add_foreign_key "pictures", "facilities"
 end

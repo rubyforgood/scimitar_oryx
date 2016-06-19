@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
-  before_action :set_facility, except: [:search,:show]
+  before_action :set_facility, except: [:search]
   before_action :authenticate_user!, except: [:show]
 
   # GET /animals
@@ -13,25 +13,14 @@ class AnimalsController < ApplicationController
   # GET /animals/1.json
   def show
     nearby = @animal.facility.nearbys(50000)
-    @facility = @animal.facility.id
-    @animal_match = AnimalMatch.new
-    #worked yesterday, nearby not working today
-    #@nearby_animals = Animal.male.where(:facility_id => @animal.facility.nearbys(50000).map(&:id),species_id: 7)
-   
-    @nearby_animals = if nearby
-      Animal.
-        where(:facility_id => nearby.map(&:id), species_id: @animal.species_id).
-        where("sex_id != #{@animal.sex_id}")
-      else
+    @nearby_animals = nearby ?
+      Animal.male.where(:facility_id => nearby.map(&:id), species_id: 7) :
       []
-    end
-    
   end
 
   # GET /animals/new
   def new
-    
-    @animal = Animal.new
+    @animal = @facility.animals.new(facility_id: params[:facility_id])
     @animal.pictures.build
   end
 
