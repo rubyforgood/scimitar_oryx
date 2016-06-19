@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Animal:</strong>
+  <%= @animal_match.animal %>
+</p>
+
+<p>
+  <strong>Potential mate:</strong>
+  <%= @animal_match.potential_mate %>
+</p>
+
+<%= link_to 'Edit', edit_animal_match_path(@animal_match) %> |
+<%= link_to 'Back', animal_matches_path %>

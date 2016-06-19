@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
-  before_action :set_facility, except: [:search]
+  before_action :set_facility, except: [:search,:show]
   before_action :authenticate_user!, except: [:show]
 
   # GET /animals
@@ -12,12 +12,20 @@ class AnimalsController < ApplicationController
   # GET /animals/1
   # GET /animals/1.json
   def show
-    @nearby_animals = Animal.male.where(:facility_id => @animal.facility.nearbys(50000).map(&:id),species_id: 7)
+    @facility = @animal.facility.id 
+    #worked yesterday, nearby not working today
+    #@nearby_animals = Animal.male.where(:facility_id => @animal.facility.nearbys(50000).map(&:id),species_id: 7)
+    if @animal.sex_id == "2"
+      @nearby_animals = Animal.male.where(species_id: @animal.species.id)
+    else
+      @nearby_animals = Animal.female.where(species_id: @animal.species.id)
+    end
   end
 
   # GET /animals/new
   def new
-    @animal = @facility.animals.new(facility_id: params[:facility_id])
+    
+    @animal = Animal.new
     @animal.pictures.build
   end
 
@@ -73,7 +81,7 @@ class AnimalsController < ApplicationController
     end
 
     def set_facility
-          @facility = @animal.facility.id 
+          @facility = Facility.find(params[:facility_id]) 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
