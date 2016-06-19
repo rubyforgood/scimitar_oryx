@@ -16,6 +16,7 @@
   <%= f.input :dam, label: 'Dam' %>
   <%= f.input :tag %>
   <%= f.input :searchable %>
+  <%= f.input :searchable %>
   <%= f.input :comments %>
   <%= f.label :images %>
   <br/>
@@ -28,7 +29,6 @@
       <%= p.label :delete %>
       <%= p.check_box :image_delete %>
       <%= p.object.image_file_name %>
-    <% end %>
     <% end %>
   <% end %>
   <br/>
