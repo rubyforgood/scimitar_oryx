@@ -9,5 +9,30 @@ Rails.application.routes.draw do
 
   resources :animals, only: [:show]
 
+
+  namespace :settings do
+    get '/', to: 'settings#list'
+    resources :species, :except => [:new, :show], :controller => 'settings' do
+      put :reorder, :on => :collection
+    end
+    resources :sexes, :except => [:new, :show], :controller => 'settings' do
+      put :reorder, :on => :collection
+    end
+    resources :rearings, :except => [:new, :show], :controller => 'settings' do
+      put :reorder, :on => :collection
+    end
+    resources :reproductive_statuses, :except => [:new, :show], :controller => 'settings' do
+      put :reorder, :on => :collection
+    end
+    resources :facility_types, :except => [:new, :show], :controller => 'settings' do
+      put :reorder, :on => :collection
+    end
+    resources :facility_expertises, :except => [:new, :show], :controller => 'settings' do
+      put :reorder, :on => :collection
+    end
+
+  end
+  
+
   root 'page#index'
 end

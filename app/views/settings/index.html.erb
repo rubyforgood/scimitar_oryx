@@ -1,0 +1,25 @@
+<h2><%= @page_title %></h2>
+
+<well class="info" id="setting_info">
+  <strong>
+    Add, rename, reorder, or delete
+    <%= to_title(@setting).pluralize.downcase %>
+  </strong>
+  <br/>
+  <p>
+  <%= %Q(Changes to settings are reflected globally. For example, if you change "Species" to "species", any instance of "Species" will be replaced with "species." You can reorder settings by dragging the name up or down.).gsub('settings', to_title(@setting).pluralize.downcase) %>
+  </p>
+</well>
+<div class="categories">
+  <ul class="list-group sortable-list" data-sort-url="/settings/<%= to_underscore(@setting) %>/reorder" id="setting_list">
+    <%= render :partial => 'settings/setting', :collection => @settings %>
+  </ul>
+  <%= form_for([:settings, @setting], :loading => "Form.Element.disable('new_submit').value='Adding #{to_title(@setting)}...'", :complete => "Form.Element.enable('new_submit').value='Add #{to_title(@setting)}'", :html => {:id => 'setting_form'}, :remote => true) do |r| %>
+    <div style="margin-top: 10px">
+      <%= r.text_field :name, :size => 30 %>
+      <%= submit_tag "Add #{to_title(@setting)}", :id => 'new_submit' %>
+    </div>
+  <% end %>
+</div>
+
+
