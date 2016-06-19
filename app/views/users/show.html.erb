@@ -1,0 +1,17 @@
+<h1> Hello <%= current_user.email %></h1>
+
+<h1> Users </h1>
+
+<%= link_to 'All Users', users_path %>
+|
+<%= link_to "Users awaiting approval", users_path(approved: "false")%>
+
+<table>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email%></td>
+      <td><%= user.approved %></td>
+      <td><%= check_box_tag 'done', '1', user.approved %></td>
+    </tr>
+  <% end %>
+</table>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :facilities do
     resources :animals
   end
+  resources :users, :only => [:index, :show]
 
   resources :animals, only: [:show]
 

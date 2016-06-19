@@ -79,6 +79,7 @@ class FacilitiesController < ApplicationController
     def facility_params
       params.require(:facility).permit(
         :name,
+        :approved,
         :facility_type_id,
         interests: [],
         pictures_attributes: [:name, :image],
