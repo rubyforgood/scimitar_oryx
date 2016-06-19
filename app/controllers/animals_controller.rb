@@ -6,13 +6,16 @@ class AnimalsController < ApplicationController
   # GET /animals
   # GET /animals.json
   def index
-    @animals = @facility.animals.all
+    @animals = @facility.animals.all unless @facility.nil?
   end
 
   # GET /animals/1
   # GET /animals/1.json
   def show
-    @nearby_animals = Animal.male.where(:facility_id => @animal.facility.nearbys(50000).map(&:id),species_id: 7)
+    nearby = @animal.facility.nearbys(50000)
+    @nearby_animals = nearby ?
+      Animal.male.where(:facility_id => nearby.map(&:id), species_id: 7) :
+      []
   end
 
   # GET /animals/new
@@ -73,7 +76,11 @@ class AnimalsController < ApplicationController
     end
 
     def set_facility
-          @facility = @animal.facility.id 
+      if @animal.nil? #index
+        @facility = Facility.find(params[:facility_id])
+      else # animal profile
+        @facility = @animal.facility.id
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
