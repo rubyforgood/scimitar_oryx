@@ -5,8 +5,8 @@
     <% end %>
   <% end %>
   <h3><%= link_to animal.name, facility_animal_path(animal.facility, animal) %></h3>
-  <p><%= animal.species.name %></p>
-  <p>Studbook <%= animal.studbook %></p>
-  <p>Tag <%= animal.tag %></p>
-  <p>Facility <%= animal.facility.name %></p>
+  <p>Species: <%= animal.species.name %></p>
+  <p>Studbook: <%= animal.studbook %></p>
+  <p>Facility: <%= animal.facility.name %></p>
+  <p>Birth Year: <%= animal.date_of_birth %></p>
 </div>
