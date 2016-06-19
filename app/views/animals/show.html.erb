@@ -16,11 +16,13 @@
 <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   <h3>Featured Potential <%=@animal.species.name %> Mate</h3>
+  <%= form_tag animal_matches_path(animal_id: 501,potential_match_id: 1), method: :post, remote: true, animal_id: "match_animal_form" %>
   
 <div data-role="page" id="pageone">
   <div data-role="main" class="ui-content">
      
         <%= image_tag @animal.pictures.first.image.url(:portfolio_large), class: "img-responsive antlr" if @animal.pictures.first.present? %>
+        
   </div>
   </div>
 
