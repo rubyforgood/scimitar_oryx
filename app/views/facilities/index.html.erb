@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= chart(:Map, [['Lat', 'Long', 'Name']]+Facility.all.map{ |e| [e.latitude, e.longitude, e.name] }, map_chart_styles) %>
+<%= chart(:Map, [['Lat', 'Long', 'Name']]+Facility.all.map{ |e| [e.latitude, e.longitude, e.name] }, map_chart_styles) if Facility.any? %>
 
 <h1>Listing Facilities</h1>
 
