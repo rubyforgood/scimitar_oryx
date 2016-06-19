@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   end
   resources :users, :only => [:index, :show]
 
+  resources :animals, only: [:show]
+
   root 'page#index'
 end

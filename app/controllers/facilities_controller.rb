@@ -81,6 +81,7 @@ class FacilitiesController < ApplicationController
         :name,
         :approved,
         :facility_type_id,
+        interests: [],
         pictures_attributes: [:name, :image],
         facilities_users_attributes: [:user_id, :facility_id]
       )
