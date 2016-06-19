@@ -2,7 +2,6 @@ class Picture < ActiveRecord::Base
   belongs_to :animal
   belongs_to :facility
 
-  # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :image, styles: {
     thumb: '100x100>',
     square: '200x200>',
@@ -14,4 +13,19 @@ class Picture < ActiveRecord::Base
 
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
+  before_save :destroy_image?
+
+  def image_delete
+    @image_delete ||= "0"
+  end
+
+  def image_delete=(value)
+    @image_delete = value
+  end
+
+  private
+  def destroy_image?
+    self.image.clear if image_delete == "1"
+  end
 end

@@ -28,7 +28,7 @@
 
     <h1> Close by Matches </h1>
     <h2> filters </h2>
-
+    <h1> Close by Matches </h1>
     <table>
     <thead>
       <th>Name</th>
@@ -43,6 +43,7 @@
     <tbody>
     <% @nearby_animals.each do |n| %>
       <tr age="<%=n.age%>">
+      <tr>
         <td> <%= link_to n.name, animal_path(n.id)%> </td>
         <td><%=n.facility.name %></td>
         <td><%=n.age%></td>
