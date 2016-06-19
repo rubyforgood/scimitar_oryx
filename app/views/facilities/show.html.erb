@@ -32,12 +32,15 @@
 </div>
 
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-6">
     <%= chart(:PieChart, [['Gender', 'Total']]+@facility.animals.reduce(Hash.new(0)){ |s, e| s[e.gender] += 1; s}.to_a ) %>
-
+  </div>
+  <div class="col-lg-6">
     <%= chart(:PieChart, [['Species', 'Total']]+@facility.animals.reduce(Hash.new(0)){ |s, e| s[e.species.name] += 1; s}.to_a ) %>
-
+  </div>
+  <div class="col-lg-12">
     <%= chart(:Histogram, [['Animal', 'Age']]+@facility.animals.map{ |e| [e.name, e.age]}, title: "Age distribution") %>
+  </div>
 
     <%
     # TODO: geo chart still has fake data
