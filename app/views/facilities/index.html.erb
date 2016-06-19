@@ -9,7 +9,7 @@
   <% @facilities.each do |facility| %>
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail"> 
-        <%= image_tag facility.pictures.first.image.url(:portfolio_large), class: "img-responsive" if facility.pictures.first.present? %>
+        <%= image_tag facility.pictures.first.image.url(:portfolio_large), class: "static-image img-responsive" if facility.pictures.first.present? %>
         <div class="caption">
           <h3><%= facility.name %></h3>
           <p>This facility has <%= facility.animals.count %> animals.</p>
