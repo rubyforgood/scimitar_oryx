@@ -1,0 +1,14 @@
+<li id="<%= dom_id(setting) %>" class="list-group-item">
+  <table>
+    <tr>
+      <th class="handle" style="width: 260px">
+        <%= setting.name %>
+      </th>
+      <td>
+      <%= link_to 'Rename', "/settings/#{to_underscore(setting)}/#{setting.id}/edit", remote: true, class: 'danger' %>
+      <%= link_to 'Delete', "/settings/#{to_underscore(setting)}/#{setting.id}", remote: true, method: :delete, confirm: 'Are you sure? Any records associated with this setting will no longer have this setting.', class: 'danger' %>
+      </span>
+      </td>
+    </tr>
+  </table>
+</li>
