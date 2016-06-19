@@ -19,7 +19,11 @@ class User < ActiveRecord::Base
   end
 
   def full_name
-    '#{first_name} #{last_name}'
+    "#{first_name} #{last_name}".strip if first_name.present? || last_name.present?
+  end
+
+  def display_name
+    full_name || email
   end
   
 end
