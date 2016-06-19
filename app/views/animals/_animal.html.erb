@@ -1,12 +1,16 @@
 <div class="animal col-md-4">
+  <div class="thumbnail">
   <%= link_to facility_animal_path(animal.facility, animal) do %>
     <% if animal.pictures.first.present? %>
       <%= image_tag animal.pictures.first.image.url(:large), class: "static-image img-responsive" %>
     <% end %>
   <% end %>
+  <div class="caption">
   <h3><%= link_to animal.name, facility_animal_path(animal.facility, animal) %></h3>
   <p>Species: <%= animal.species.name %></p>
   <p>Studbook: <%= animal.studbook %></p>
   <p>Facility: <%= animal.facility.name %></p>
   <p>Birth Date: <%= animal.date_of_birth %></p>
+  </div>
+  </div>
 </div>

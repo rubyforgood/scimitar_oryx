@@ -15,21 +15,29 @@
   <div class="col-md-4">
     <p>
       <% if current_user.site_admin? %>
-        <%= link_to 'Edit', edit_facility_path(@facility) %>
+        <%= link_to 'Edit', edit_facility_path(@facility), class: 'btn btn-default' %>
       <% end %>
+      <br />
       <br/>
-      <%= link_to 'Back', facilities_path %>
+      <%= link_to 'Back', facilities_path, class: 'btn btn-default' %>
+      <br />
       <br/>
-      <%= link_to 'Add Animal', new_facility_animal_path(facility_id: @facility.id) %>
+     
     </p>
   </div>
 </div>
+<hr />
 <div class="row">
   <div class="col-lg-12">
-    <h3>Animals</h3>
+    <h2>Animals</h2>
+     <%= link_to 'Add Animal', new_facility_animal_path(facility_id: @facility.id), class: 'btn btn-primary' %>
   </div>
-  <%= render @facility.animals %>
-</div>
+  </div>
+  <br />
+  <div class="row">
+    <%= render @facility.animals %>
+  </div>
+
 
 <div class="row">
   <div class="col-lg-6">
