@@ -21,10 +21,10 @@ class Facility < ActiveRecord::Base
   after_validation :geocode, if: ->(facility){ facility.address.present? && facility.address_changed? }
 
   VALID_INTERESTS = {
-    'grow_herd_size'                  => 'Breed to grow herd size',
-    'maintain_herd_size'              => 'Breed to maintain herd size',
-    'decrease_herd_size'              => 'Looking to decrease herd size',
-    'house_post_reproductive_animals' => 'Willing to house post-reproductive animals',
+    'grow_herd_size'                  => 'Interested in breeding to grow herd size',
+    'maintain_herd_size'              => 'Interested in breeding to maintain herd size',
+    'decrease_herd_size'              => 'Interested in decreasing herd size',
+    'house_post_reproductive_animals' => 'Interested in housing post-reproductive animals',
     'house_new_species'               => 'Interested in housing new species'
   }.freeze
 
@@ -33,5 +33,4 @@ class Facility < ActiveRecord::Base
   VALID_INTERESTS.keys.each do |interest|
     define_method("interest_to_#{interest}?"){ interests.include?(interest) }
   end
-
 end
