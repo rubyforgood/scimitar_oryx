@@ -11,7 +11,7 @@ Species.where(name: 'Addra (dama) Gazelle').first_or_create
 Species.where(name: 'Nubian ibex').first_or_create
 Species.where(name: 'Scimitar-horned Oryx').first_or_create
 Species.where(name: 'Sable Antelope').first_or_create
-Species.where(name: 'Tajik Markhor').first_or_create
+Species.where(name: 'Tadjik Markhor').first_or_create
 Species.where(name: 'Transcaspian Urial').first_or_create
 
 Sex.where(name: 'Male').first_or_create
