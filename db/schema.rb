@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619145037) do
+ActiveRecord::Schema.define(version: 20160630013339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 20160619145037) do
 
   create_table "facilities", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",                                         null: false
-    t.datetime "updated_at",                                         null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.integer  "facility_type_id"
     t.boolean  "spa"
     t.float    "acreage"
@@ -65,14 +65,13 @@ ActiveRecord::Schema.define(version: 20160619145037) do
     t.boolean  "temperture_controled"
     t.boolean  "water_features"
     t.boolean  "supplemental_feed"
-    t.integer  "facility_expertise_id"
-    t.text     "interests",             default: ["grow_herd_size"],              array: true
+    t.text     "interests",            default: ["grow_herd_size"],              array: true
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
+    t.text     "expertise",      default: [],                              array: true
   end
 
-  add_index "facilities", ["facility_expertise_id"], name: "index_facilities_on_facility_expertise_id", using: :btree
   add_index "facilities", ["facility_type_id"], name: "index_facilities_on_facility_type_id", using: :btree
 
   create_table "facilities_users", force: :cascade do |t|

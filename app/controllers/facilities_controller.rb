@@ -81,6 +81,13 @@ class FacilitiesController < ApplicationController
         :name,
         :approved,
         :facility_type_id,
+        :spa,
+        :acreage,
+        :endangered_acreage,
+        :temperture_controled,
+        :water_features,
+        :supplemental_feed,
+        expertise: [],
         interests: [],
         pictures_attributes: [:name, :image],
         facilities_users_attributes: [:user_id, :facility_id]

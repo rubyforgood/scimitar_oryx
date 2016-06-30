@@ -4,8 +4,7 @@ class Facility < ActiveRecord::Base
   has_many :users, through: :facilities_users
   has_many :pictures, :dependent => :destroy
   belongs_to :facility_type
-  belongs_to :facility_expertise
-
+  
   accepts_nested_attributes_for :facilities_users
 
   validates :name, presence: true
@@ -32,5 +31,9 @@ class Facility < ActiveRecord::Base
 
   VALID_INTERESTS.keys.each do |interest|
     define_method("interest_to_#{interest}?"){ interests.include?(interest) }
+  end
+
+  FacilityExpertise.all.each do |expertise|
+    define_method("expertise_to_#{expertise.id}?"){ expertise.include?(expertise.id)}
   end
 end
