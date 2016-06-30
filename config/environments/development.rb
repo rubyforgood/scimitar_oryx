@@ -38,7 +38,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
 
-  env_var_missing = -> { "xxx".tap { STDERR.puts "ENV VAR MISSING! SHOULDN'T MATTER THOUGH SINCE WE'RE IN DEVELOPMENT" }}
+  env_var_missing = -> { "xxx".tap { STDERR.puts "ENV VAR MISSING! SHOULDN'T MATTER THOUGH SINCE WE'RE IN DEVELOPMENT" } }
 
   config.paperclip_defaults = {
     storage: :s3,
