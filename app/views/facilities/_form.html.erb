@@ -4,7 +4,7 @@
   	<%= fu.input :user_id, input_html: { value: current_user.id }, :as => :hidden %>
   <% end %>
   <%= f.input :name %>
-  <%= f.input :facility_type_id, collection: FacilityType.all %>
+  <%= f.input :facility_type_id,  as: :radio_buttons, collection: FacilityType.all %>
   <div class="form-group check_boxes optional facility_interests">
     <%= f.simple_fields_for :pictures do |p| %>
       <%= p.label :image %>
@@ -15,7 +15,7 @@
 
   <%= f.input :interests, as: :check_boxes, collection: Facility::VALID_INTERESTS.to_a.map(&:reverse) %>
 
-  <%= f.input :facility_expertise_id, collection: FacilityExpertise.all %>
+  <%= f.input :expertise, as: :check_boxes, collection: FacilityExpertise.all.map{|f| [f.name, f.id.to_s]} %>
   <%= f.input :spa %>
   <%= f.input :acreage %>
   <%= f.input :endangered_acreage %>

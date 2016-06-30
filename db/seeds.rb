@@ -29,7 +29,7 @@ FacilityType.where(name: 'Institution').first_or_create
 FacilityType.where(name: 'Ranch').first_or_create
 FacilityType.where(name: 'Individual').first_or_create
 
-FacilityExpertise.where(name: 'Convervation breeding').first_or_create
+FacilityExpertise.where(name: 'Conservation breeding').first_or_create
 FacilityExpertise.where(name: 'Reproductive Science').first_or_create
 FacilityExpertise.where(name: 'Biobanking').first_or_create
 FacilityExpertise.where(name: 'Natural Resource Management').first_or_create
