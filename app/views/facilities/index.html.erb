@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <h1>Facilities</h1>
 <br />
 <%= chart(:Map, [['Lat', 'Long', 'Name']]+Facility.all.map{ |e| [e.latitude, e.longitude, e.name] }, map_chart_styles) if Facility.any? %>
