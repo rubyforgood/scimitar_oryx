@@ -19,7 +19,7 @@ class Animal < ActiveRecord::Base
 
   scope :searchable, -> { where(searchable: true) }
 
-  VALID_INTERESTS = ["keep", "sell", "trade", "loan", "sell or trade in 1-2 years", "looking for mate"]
+  VALID_INTERESTS = ["keep", "sell", "trade", "loan", "sell or trade in 1-2 years", "looking for mate"].freeze
   
   before_save { |animal| animal.interests = animal.interests.uniq.select{ |e| VALID_INTERESTS.include?(e) } }
 
