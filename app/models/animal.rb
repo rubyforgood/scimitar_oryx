@@ -19,7 +19,8 @@ class Animal < ActiveRecord::Base
 
   scope :searchable, -> { where(searchable: true) }
 
-  VALID_INTERESTS = %w(keep sell trade loan).freeze
+  VALID_INTERESTS = %w(keep sell trade loan sell\ or\ trade\ in\ 1-2\ years looking\ for\ mate).freeze
+  
   before_save { |animal| animal.interests = animal.interests.uniq.select{ |e| VALID_INTERESTS.include?(e) } }
 
   accepts_nested_attributes_for :pictures
