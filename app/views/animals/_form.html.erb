@@ -6,7 +6,9 @@
   <%= f.input :sex_id, collection: Sex.all %>
   <%= f.input :rearing_id, collection: Rearing.all %>
   <%= f.input :reproductive_status_id, collection: ReproductiveStatus.all %>
-  <%= f.input :date_of_birth %>
+  <%= f.input :date_of_birth, start_year: 1990,
+                              end_year: Date.today.year,
+                              order: [:month, :day, :year] %>
 
   <%= f.input :interests, as: :check_boxes, collection: Animal::VALID_INTERESTS %>
 
