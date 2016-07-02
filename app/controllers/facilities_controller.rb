@@ -1,8 +1,8 @@
 class FacilitiesController < ApplicationController
+  before_action :set_facility_user
   before_action :set_facility, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
-  before_action :set_facility_user
-
+  
   # GET /facilities
   # GET /facilities.json
   def index
@@ -68,7 +68,16 @@ class FacilitiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_facility
-      @facility = Facility.find(params[:id])
+
+      if current_user.is_site_admin? || action_name == 'show'
+        @facility = Facility.find(params[:id])
+      else #restrict edit/update/destroy to only facilities associated with the user.
+        begin
+          @facility = current_user.facilities.find(params[:id])
+        rescue
+          render_not_found('Sorry, that facility could not be found.')
+        end
+      end
     end
 
     def set_facility_user

@@ -8,6 +8,18 @@ class ApplicationController < ActionController::Base
     new_facility_path
   end
 
+  def render_unauthorized(text)
+    render_status_code(text, 401)
+  end
+
+  def render_not_found(text)
+    render_status_code(text, 404)
+  end
+
+  def render_status_code(text, code)
+    render(:text => text, :status => code, :layout => 'application') and return
+  end
+
 
   protected
 
