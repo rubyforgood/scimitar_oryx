@@ -17,9 +17,8 @@ class ApplicationController < ActionController::Base
   end
 
   def render_status_code(text, code)
-    render(:text => text, :status => code, :layout => 'application') and return
+    render(text: text, status: code, layout: 'application') && return
   end
-
 
   protected
 

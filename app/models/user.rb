@@ -25,9 +25,4 @@ class User < ActiveRecord::Base
   def display_name
     full_name || email
   end
-
-  def is_site_admin? 
-    site_admin? 
-  end
-  
 end
