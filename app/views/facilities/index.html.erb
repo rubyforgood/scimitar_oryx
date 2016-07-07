@@ -13,7 +13,7 @@
           <h3><%= facility.name %></h3>
           <p>This facility has <%= facility.animals.count %> animals.</p>
             <%= link_to 'Show', facility, class: 'btn btn-primary' %>
-            <% if current_user.site_admin? %>
+            <% if current_user.try :site_admin? %>
             <%= link_to 'Edit', edit_facility_path(facility), class: 'btn btn-default' %>
             <%= link_to 'Delete', facility, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
             <% end %>

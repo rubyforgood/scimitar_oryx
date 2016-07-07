@@ -14,7 +14,7 @@
 
   <div class="col-md-4">
     <p>
-      <% if current_user.site_admin? %>
+      <% if current_user.try :site_admin? %>
         <%= link_to 'Edit', edit_facility_path(@facility), class: 'btn btn-default' %>
       <% end %>
       <br />

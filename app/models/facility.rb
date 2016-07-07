@@ -32,8 +32,4 @@ class Facility < ActiveRecord::Base
   VALID_INTERESTS.keys.each do |interest|
     define_method("interest_to_#{interest}?"){ interests.include?(interest) }
   end
-
-  FacilityExpertise.all.each do |expertise|
-    define_method("expertise_to_#{expertise.id}?"){ expertise.include?(expertise.id)}
-  end
 end

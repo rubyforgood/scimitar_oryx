@@ -3,12 +3,11 @@ require 'rails_helper'
 RSpec.describe "animals/index", type: :view do
 
   it "renders a list of animals" do
-    facility = create(:facility)
-    assign(:animals, [
-      create(:sample_animal, facility: facility),
-    ])
+    @animals = [create(:animal)]
+    @facility = @animals.first.facility
 
     render
-    assert_select "div.animal", :count => 1
+
+    assert_select 'div.animal', count: 1
   end
 end
