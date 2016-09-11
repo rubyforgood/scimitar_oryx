@@ -9,4 +9,4 @@ services:
   - postgresql
 before_script:
   - psql -c 'create database scimitar_oryx_test;' -U postgres
-  - bin/rake db:create db:migrate
+  - bin/rake db:create db:schema:load 

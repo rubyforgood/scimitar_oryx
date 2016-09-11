@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :animal_matches
   get 'search/animals'
 
   devise_for :users

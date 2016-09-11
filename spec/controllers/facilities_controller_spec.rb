@@ -13,7 +13,7 @@ RSpec.describe FacilitiesController, type: :controller do
     it "assigns all facilities as @facilities" do
       facility = Facility.create! valid_facility.attributes
       get :index, {}, valid_session
-      expect(assigns(:facilities)).to eq([facility])
+      expect(assigns(:facilities)).to eq(Facility.all)
     end
     it "renders the index template" do
       facility = Facility.create! valid_facility.attributes
