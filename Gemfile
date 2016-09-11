@@ -1,47 +1,46 @@
 source 'https://rubygems.org'
 
+ruby '2.3.1'
 gem 'rails', '4.2.6'
-gem 'pg'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
+
+gem 'acts_as_list'
+gem 'aws-sdk', '> 2'
+gem 'aws-sdk-v1' #for paperclip
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'cancancan', '~> 1.10'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
-gem 'cancancan', '~> 1.10'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'dotenv'
+gem 'geocoder'
+gem 'jbuilder', '~> 2.0'
+gem 'jquery-rails'
+gem 'jquery-turbolinks'
+gem 'paperclip'
+gem 'pg'
+gem 'rails_12factor', group: :production
+gem 'sass-rails', '~> 5.0'
+gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'simple_form'
+gem 'turbolinks'
+gem 'uglifier', '>= 1.3.0'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
 
-
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jquery-turbolinks'
-gem 'jbuilder', '~> 2.0'
-gem 'paperclip'
-gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'dotenv'
-gem 'acts_as_list'
-gem 'simple_form'
-gem 'aws-sdk-v1' #for paperclip
-gem 'aws-sdk', '> 2'
-gem 'geocoder'
-
-gem 'rails_12factor', group: :production
-
 group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
-  gem 'pry'
-  gem 'pry-remote'
-  gem 'pry-byebug'
-  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'pry-remote'
   gem 'quiet_assets'
+  gem 'rspec-rails'
 end
 
 group :development do
-  gem 'web-console', '~> 2.0'
   gem 'spring'
-
+  gem 'web-console', '~> 2.0'
 end
