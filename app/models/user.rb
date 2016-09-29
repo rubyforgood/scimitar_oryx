@@ -25,5 +25,4 @@ class User < ActiveRecord::Base
   def display_name
     full_name || email
   end
-  
 end
