@@ -1,4 +1,4 @@
-class Animal < ActiveRecord::Base
+class Animal < ApplicationRecord
   include Searchable
 
   Animal.search_endpoint = ENV['CLOUDSEARCH_ANIMALS_SEARCH_URL']
