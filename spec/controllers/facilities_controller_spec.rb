@@ -12,12 +12,12 @@ RSpec.describe FacilitiesController, type: :controller do
     end
     it "assigns all facilities as @facilities" do
       facility = Facility.create! valid_facility.attributes
-      get :index, {}, valid_session
+      get :index, params: {}, session: valid_session
       expect(assigns(:facilities)).to eq(Facility.all)
     end
     it "renders the index template" do
       facility = Facility.create! valid_facility.attributes
-      get :index, {}, valid_session
+      get :index, params: {}, session: valid_session
       expect(response).to render_template(:index)
     end
   end
@@ -28,13 +28,13 @@ RSpec.describe FacilitiesController, type: :controller do
     end
     it "assigns the requested facility as @facility" do
       facility = Facility.create! valid_facility.attributes
-      get :show, {:id => facility.to_param}, valid_session
+      get :show, params: {:id => facility.to_param}, session: valid_session
       expect(assigns(:facility)).to eq(facility)
     end
 
     it "renders the show template" do
       facility = Facility.create! valid_facility.attributes
-      get :show, {:id => facility.to_param}, valid_session
+      get :show, params: {:id => facility.to_param}, session: valid_session
       expect(response).to render_template(:show)
     end
   end
@@ -44,11 +44,11 @@ RSpec.describe FacilitiesController, type: :controller do
       sign_in(create(:user))
     end
     it "assigns a new facility as @facility" do
-      get :new, {}, valid_session
+      get :new, params: {}, session: valid_session
       expect(assigns(:facility)).to be_a_new(Facility)
     end
     it "renders the new template" do
-      get :new, {}, valid_session
+      get :new, params: {}, session: valid_session
       expect(response).to render_template(:new)
     end
   end
@@ -59,12 +59,12 @@ RSpec.describe FacilitiesController, type: :controller do
     end
     it "assigns the requested facility as @facility" do
       facility = Facility.create! valid_facility.attributes
-      get :edit, {:id => facility.to_param}, valid_session
+      get :edit, params: {:id => facility.to_param}, session: valid_session
       expect(assigns(:facility)).to eq(facility)
     end
     it "renders the edit template" do
       facility = Facility.create! valid_facility.attributes
-      get :edit, {:id => facility.to_param}, valid_session
+      get :edit, params: {:id => facility.to_param}, session: valid_session
       expect(response).to render_template(:edit)
     end
   end
@@ -76,30 +76,30 @@ RSpec.describe FacilitiesController, type: :controller do
     context "with valid params" do
       it "creates a new Facility" do
         expect {
-          post :create, {:facility => valid_facility.attributes}, valid_session
+          post :create, params: {:facility => valid_facility.attributes}, session: valid_session
         }.to change(Facility, :count).by(1)
       end
 
       it "assigns a newly created facility as @facility" do
-        post :create, {:facility => valid_facility.attributes}, valid_session
+        post :create, params: {:facility => valid_facility.attributes}, session: valid_session
         expect(assigns(:facility)).to be_a(Facility)
         expect(assigns(:facility)).to be_persisted
       end
 
       it "redirects to the created facility" do
-        post :create, {:facility => valid_facility.attributes}, valid_session
+        post :create, params: {:facility => valid_facility.attributes}, session: valid_session
         expect(response).to redirect_to(Facility.last)
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved facility as @facility" do
-        post :create, {:facility => invalid_facility.attributes}, valid_session
+        post :create, params: {:facility => invalid_facility.attributes}, session: valid_session
         expect(assigns(:facility)).to be_a_new(Facility)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:facility => invalid_facility.attributes}, valid_session
+        post :create, params: {:facility => invalid_facility.attributes}, session: valid_session
         expect(response).to render_template("new")
       end
     end
@@ -114,7 +114,7 @@ RSpec.describe FacilitiesController, type: :controller do
 
       it "updates the requested facility" do
         facility = Facility.create! valid_facility.attributes
-        put :update, {:id => facility.to_param, :facility => new_attributes}, valid_session
+        put :update, params: {:id => facility.to_param, :facility => new_attributes}, session: valid_session
         facility.reload
         expect(facility.name).to eql new_attributes[:name]
         expect(response).to redirect_to(facility)
@@ -122,13 +122,13 @@ RSpec.describe FacilitiesController, type: :controller do
 
       it "assigns the requested facility as @facility" do
         facility = Facility.create! valid_facility.attributes
-        put :update, {:id => facility.to_param, :facility => valid_facility.attributes}, valid_session
+        put :update, params: {:id => facility.to_param, :facility => valid_facility.attributes}, session: valid_session
         expect(assigns(:facility)).to eq(facility)
       end
 
       it "redirects to the facility" do
         facility = Facility.create! valid_facility.attributes
-        put :update, {:id => facility.to_param, :facility => valid_facility.attributes}, valid_session
+        put :update, params: {:id => facility.to_param, :facility => valid_facility.attributes}, session: valid_session
         expect(response).to redirect_to(facility)
       end
     end
@@ -136,13 +136,13 @@ RSpec.describe FacilitiesController, type: :controller do
     context "with invalid params" do
       it "assigns the facility as @facility" do
         facility = Facility.create! valid_facility.attributes
-        put :update, {:id => facility.to_param, :facility => invalid_facility.attributes}, valid_session
+        put :update, params: {:id => facility.to_param, :facility => invalid_facility.attributes}, session: valid_session
         expect(assigns(:facility)).to eq(facility)
       end
 
       it "re-renders the 'edit' template" do
         facility = Facility.create! valid_facility.attributes
-        put :update, {:id => facility.to_param, :facility => invalid_facility.attributes}, valid_session
+        put :update, params: {:id => facility.to_param, :facility => invalid_facility.attributes}, session: valid_session
         expect(response).to render_template("edit")
       end
     end
@@ -155,13 +155,13 @@ RSpec.describe FacilitiesController, type: :controller do
     it "destroys the requested facility" do
       facility = Facility.create! valid_facility.attributes
       expect {
-        delete :destroy, {:id => facility.to_param}, valid_session
+        delete :destroy, params: {:id => facility.to_param}, session: valid_session
       }.to change(Facility, :count).by(-1)
     end
 
     it "redirects to the facilities list" do
       facility = Facility.create! valid_facility.attributes
-      delete :destroy, {:id => facility.to_param}, valid_session
+      delete :destroy, params: {:id => facility.to_param}, session: valid_session
       expect(response).to redirect_to(facilities_url)
     end
   end
